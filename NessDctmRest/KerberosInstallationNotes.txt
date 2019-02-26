@@ -1,0 +1,16 @@
+
+1. Tomcat should be configured to work with Kerberos. (Currently in VCAC it is saar-test-web01 Tomcat 7.1)
+2. Configuration should be tested with webtop. I.e. webtop should properly work with Kerberos auth.
+3. Should be sure that superuser.properties contains existing user(s). 
+4. Kerberos.properties should contains proper domain. E.g. domain=XXX
+5. ExtDocConfig.js should contains: 
+    --- authenticationType: 'kerberos';
+    --- restUrl:  'http://XXX/NessDctmRest/' (important that server name is full i.e. contains domain) 
+6. Same about saarlite url -- should contains domain    
+7. In VCAC for testing simplifying basic authentication add 
+   --- open war by starting Tomcat or using archiver app
+   --- remove SaarLite.war from webapps
+   --- copy SaarLite folder and give it name SaarLiteB
+   --- inside SaarLiteB change in ExtDocConfig.js to authenticationType: 'basic'. 
+      
+    
