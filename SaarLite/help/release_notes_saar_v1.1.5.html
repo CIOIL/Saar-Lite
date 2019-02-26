@@ -1,0 +1,1135 @@
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10.000">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <style type="text/css">
+        .navPadding div {
+            margin-left: 1em;
+        }
+
+        body, dt *, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *, th *, .head *, .table caption *, .nav *, .toc *, dt .errorcode, h1 .errorcode, h2 .errorcode, h3 .errorcode, h4 .errorcode, h5 .errorcode, h6 .errorcode, th .errorcode, .head .errorcode, .table caption .errorcode, .nav .errorcode, .toc .errorcode, dt .errorname, h1 .errorname, h2 .errorname, h3 .errorname, h4 .errorname, h5 .errorname, h6 .errorname, th .errorname, .head .errorname, .table caption .errorname, .nav .errorname, .toc .errorname, dt .filename, h1 .filename, h2 .filename, h3 .filename, h4 .filename, h5 .filename, h6 .filename, th .filename, .head .filename, .table caption .filename, .nav .filename, .toc .filename, dt .literal, h1 .literal, h2 .literal, h3 .literal, h4 .literal, h5 .literal, h6 .literal, th .literal, .head .literal, .table caption .literal, .nav .literal, .toc .literal {
+            font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+        }
+
+        .topicHeader {
+            font-family: "Arial", "Helvetica", sans-serif;
+        }
+
+        @media print {
+            body {
+                font-family: "Times New Roman", "Times", serif;
+            }
+        }
+
+        code, kbd, p.codeOnly, var, .errorcode, .errorname, .filename, .literal, .synopsis {
+            font-family: "Courier New", "Courier", monospace;
+            font-size: 100%;
+        }
+
+        a:link {
+            color: #0000CC;
+        }
+
+        a:visited {
+            color: #000066;
+        }
+
+        a:active, a:focus, a:hover {
+            color: #FF0000;
+        }
+
+        a.disabled {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a img {
+            border-style: none;
+        }
+
+        abbr, .abbr {
+            border-bottom-style: dotted;
+            border-width: 1px;
+            cursor: default;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            font-size: small;
+            padding-bottom: 1px;
+        }
+
+        cite {
+            font-style: italic;
+        }
+
+            cite.section {
+                font-style: normal;
+            }
+
+        code, var {
+            font-style: normal;
+        }
+
+        div.code, p.codeOnly, .synopsis {
+            color: #173160;
+            margin-left: 1.5em;
+            margin-top: .4em;
+            padding-bottom: 0.25em;
+            padding-top: 0.25em;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            white-space: pre;
+        }
+
+        dt, h1, h2, h3, h4, h5, h6, p.head, table caption, .topicHeader {
+            page-break-after: avoid;
+            page-break-inside: avoid;
+            text-align: left;
+        }
+
+        dt, h1, h2, h3, h4, h5, h6, table caption, .head {
+            color: #003366;
+        }
+
+        dt, table caption, .head {
+            font-weight: bold;
+        }
+
+            dt .parameter, h1 .parameter, h2 .parameter, h3 .parameter, h4 .parameter, h5 .parameter, h6 .parameter, th .parameter, .head .parameter, .table caption .parameter, .nav .parameter, .toc .parameter, dt .replaceable, h1 .replaceable, h2 .replaceable, h3 .replaceable, h4 .replaceable, h5 .replaceable, h6 .replaceable, th .replaceable, .head .replaceable, .table caption .replaceable, .nav .replaceable, .toc .replaceable {
+                font-style: normal;
+            }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 0em;
+            margin-top: 1em;
+        }
+
+        h1 {
+            font-size: 140%;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 130%;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 120%;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-size: 100%;
+            font-weight: bold;
+        }
+
+        h5 {
+            font-size: 100%;
+            font-style: italic;
+        }
+
+        h6 {
+            font-size: 100%;
+            font-weight: normal;
+        }
+
+        kbd {
+            font-weight: bold;
+        }
+
+        li:first-child {
+            page-break-after: avoid;
+        }
+
+        ol, ul {
+            margin-top: 0.8em;
+            page-break-before: avoid;
+        }
+
+            ol.toc li, ul.toc li {
+                page-break-inside: avoid;
+            }
+
+            ol ol {
+                list-style-type: lower-alpha;
+            }
+
+                ol ol ol {
+                    list-style-type: lower-roman;
+                }
+
+        p, table caption, .caution p.head, .library, .note p.head, .tip p.head {
+            margin-top: 0.8em;
+            margin-bottom: 0.8em;
+        }
+
+            p.head, table, .procedure {
+                margin-top: 1em;
+            }
+
+            p.mediaOnly {
+                margin-bottom: 1em;
+                margin-top: 1em;
+                page-break-before: avoid;
+            }
+
+            p.pageBreakAllow {
+                page-break-before: auto;
+            }
+
+        table {
+            border-collapse: collapse;
+            border-color: #333333;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        td p.mediaOnly {
+            margin: 0em;
+        }
+
+        th, td {
+            border-color: #999999;
+            border-style: groove;
+            border-width: 1px;
+            empty-cells: show;
+            padding: 0.5em;
+            page-break-after: avoid;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #E1E9F2;
+            color: #303030;
+            font-weight: bold;
+        }
+
+            th p, td p {
+                margin-bottom: .5em;
+                margin-top: .5em;
+            }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
+            tr.pageBreakAllow {
+                page-break-inside: auto;
+            }
+
+        ul {
+            list-style-type: disc;
+        }
+
+            ul ul {
+                list-style-type: circle;
+            }
+
+                ul ul ul {
+                    list-style-type: square;
+                }
+
+        .address {
+            margin-bottom: 1em;
+            margin-left: .5em;
+            margin-top: 1em;
+        }
+
+            .address p {
+                margin: 0em;
+            }
+
+        .book {
+            margin-top: 0em;
+        }
+
+            .book h1 {
+                margin-top: 1.5em;
+            }
+
+            .book .abstract, .abstract ul {
+                margin-top: 2.2em;
+            }
+
+                .book .abstract li p {
+                    margin-top: 0.5em;
+                }
+
+                .book .abstract p {
+                    margin-top: 1.1em;
+                }
+
+            .book .metadata {
+                font-style: italic;
+                margin-top: 3em;
+            }
+
+            .book .metadata, .logo {
+                text-align: right;
+            }
+
+            .book .topicHeader {
+                display: none;
+            }
+
+        .caution p.head {
+            color: #000000;
+        }
+
+            .caution p.head img {
+                vertical-align: text-bottom;
+            }
+
+        .caution, .note, .tip {
+            margin-bottom: .75em;
+            margin-left: 1.5em;
+            margin-top: .75em;
+        }
+
+        .caution {
+            background-color: #9AB0C1;
+            border-style: outset;
+            border-width: .3em;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+            .caution .markertext {
+                background-color: #FFFF00;
+                border-color: #666666;
+                border-style: solid;
+                border-width: 1px;
+            }
+
+        .copyright {
+            font-size: 80%;
+            margin-top: 2.5em;
+            page-break-before: avoid;
+        }
+
+        @media screen {
+            .copyright {
+                display: none;
+            }
+        }
+
+        .example, .figure {
+            margin-bottom: 2em;
+            margin-top: 2em;
+        }
+
+        .firstterm {
+            font-weight: bold;
+        }
+
+        .footnoteList {
+            border-top-style: solid;
+            border-width: 1px;
+        }
+
+        .footnote {
+            margin-bottom: 1em;
+        }
+
+        .footnoterefContainer p {
+            margin-bottom: 0em;
+        }
+
+        .footnoterefContainer .footnoteref {
+            float: left;
+            margin-top: -0.25em;
+        }
+
+        .footnoteref {
+            font-size: 70%;
+            vertical-align: super;
+        }
+
+        .footnoteText {
+            font-size: 85%;
+            margin-left: 0.8em;
+        }
+
+        .guilabel {
+            font-weight: bold;
+        }
+
+        .keycap {
+            font-weight: bold;
+        }
+
+        .lastpara {
+            page-break-before: avoid;
+        }
+
+        .library p {
+            margin: 0em;
+        }
+
+        @media screen {
+            .linkData {
+                display: none;
+            }
+        }
+
+        .logo {
+            font-size: 200%;
+            font-weight: bold;
+            margin: 21px;
+        }
+
+            .logo img {
+                font-size: 50%;
+                font-weight: normal;
+                margin: 0em;
+            }
+
+        .metadata {
+            color: #707070;
+            font-size: 80%;
+            margin-bottom: 0em;
+        }
+
+            .metadata p {
+                margin-bottom: 0em;
+                margin-top: 0em;
+            }
+
+        .menu {
+            margin-bottom: 1.5em;
+            margin-top: 1.5em;
+        }
+
+        .nav a:active, .nav a:focus, .nav a:hover {
+            color: #FF0000;
+            text-decoration: underline;
+        }
+
+        .navPadding div {
+            margin-left: 1em !important;
+        }
+
+        @media print {
+            .nav div {
+                display: block !important;
+            }
+        }
+
+        .nav p {
+            margin-bottom: .2em;
+            margin-top: .2em;
+            white-space: nowrap;
+        }
+
+        .nav .navGroupControl a {
+            text-decoration: none;
+        }
+
+        .nav .toc .appendix, .nav .toc .chapter, .nav .toc .glossary, .nav .toc .index, .nav .toc .legalnotice, .nav .toc .part, .nav .toc .preface {
+            margin-top: .6em;
+        }
+
+        .navControl {
+            font-family: monospace;
+        }
+
+        @media print {
+            .navControl {
+                display: none;
+            }
+        }
+
+        .navEntryHighlight {
+            font-weight: bold;
+        }
+
+        .nav .firstterm, .nav .guilabel, .nav .kbd, .nav .keycap {
+            font-weight: normal;
+        }
+
+        .navEntryHighlight .firstterm, .navEntryHighlight .guilabel, .navEntryHighlight .kbd, .navEntryHighlight .keycap {
+            font-weight: bold;
+        }
+
+        .navEntryTopicList {
+            background-color: #FFFFCC;
+            border-style: solid;
+            border-width: 1px;
+            margin-right: 0.5em;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+        }
+
+        .otheraddr {
+            font-style: italic;
+        }
+
+        .parameter, .replaceable {
+            font-style: italic;
+        }
+
+        .phrase {
+            white-space: nowrap;
+        }
+
+        .product {
+            font-size: 87.5%;
+            font-weight: bold;
+        }
+
+            .product p {
+                margin-bottom: 0em;
+            }
+
+                .product p.multiline {
+                    margin-top: 0.1em;
+                }
+
+        .progress {
+            border-color: #000000;
+            border-style: solid;
+            border-width: 1px;
+            height: 1.5em;
+            margin-bottom: 1.5em;
+            margin-top: 1.5em;
+        }
+
+        .progressComplete {
+            background-color: #003366;
+            height: 100%;
+            width: 0%;
+        }
+
+        .relatedTopics {
+            margin-top: 1em;
+            page-break-before: avoid;
+            page-break-inside: avoid;
+        }
+
+            .relatedTopics p {
+                margin-left: 1.2em;
+            }
+
+                .relatedTopics p.head {
+                    margin-left: 0em;
+                }
+
+        .scaleToFit {
+            max-width: 100%;
+        }
+
+        .syntax p {
+            margin-bottom: .1em;
+            margin-left: 1.5em;
+            margin-top: .1em;
+        }
+
+            .syntax p.head {
+                margin-top: 1.2em;
+            }
+
+        .syntax .synopsis p.head {
+            margin-top: .25em;
+        }
+
+        .term {
+            font-style: italic;
+            font-weight: normal;
+            color: #173160;
+            text-decoration: none;
+        }
+
+        .toc .appendix, .toc .chapter, .toc .glossary, .toc .index, .toc .legalnotice, .toc .part, .toc .preface {
+            margin-top: 1em;
+        }
+
+        .topicHeader {
+            font-size: 80%;
+            font-style: italic;
+            color: #173160;
+        }
+
+            .topicHeader a {
+                text-decoration: none;
+            }
+
+                .topicHeader a:active, .topicHeader a:focus, .topicHeader a:hover {
+                    text-decoration: underline;
+                }
+
+        .topicNav {
+            border-bottom-style: none;
+            border-color: #000000;
+            border-left-style: none;
+            border-right-style: none;
+            border-top-style: solid;
+            border-width: 1px;
+            margin-top: 1em;
+        }
+
+        #book .topicNav {
+            border-top-style: none;
+            margin-left: 1em;
+        }
+
+        .url {
+            font-weight: bold;
+        }
+
+        #indexhead a {
+            text-decoration: underline;
+        }
+
+        #book div.appendix, #book div.chapter, #book div.glossary, #book div.index, #book div.legalnotice, #book div.part, #book div.preface, #book div.toc {
+            margin-top: 2em;
+            page-break-before: always;
+        }
+
+            #book div.chapter h1, #book div.glossary h1, #book div.legalnotice h1, #book div.part h1, #book div.preface h1 {
+                margin-top: 0em;
+            }
+
+        #book div.section {
+            margin-left: 1.5em;
+            margin-top: 2em;
+        }
+
+        #book div .topicHeader {
+            border-color: #173160;
+            border-top-style: solid;
+            border-width: 1px;
+        }
+
+        #book .navPadding {
+            margin-left: 0em;
+            margin-top: 0em;
+        }
+
+        body.header {
+            background-color: #CED9E9;
+            height: 100%;
+        }
+
+            body.header .navButton, body.header .navButtonHighlight {
+                border-style: outset;
+            }
+
+            body.header .navButtonActive {
+                border-style: inset;
+            }
+
+        body.nav {
+            border-top-color: #83B5E8;
+            border-top-style: solid;
+            border-top-width: 1px;
+            font-size: 75%;
+            margin: 0em;
+            padding: 0em;
+        }
+
+            body.nav .header {
+                border-bottom-style: solid;
+                border-color: #83B5E8;
+                border-width: 1px;
+                font-weight: normal;
+                margin: 0em;
+                width: 100%;
+            }
+
+            body.nav .navButton, body.nav .navButtonActive, body.nav .navButtonHighlight, body.nav .navButtonSelected {
+                border-left-style: none;
+                border-right-color: #83B5E8;
+                border-right-style: solid;
+                border-top-style: none;
+                border-width: 1px;
+                margin: 0em;
+                padding: 0.25em;
+            }
+
+            body.nav .navButtonActive, body.nav .navButtonHighlight, body.nav .navButtonSelected {
+                background-color: #EEE47A;
+            }
+
+            body.nav a:link, body.nav a:visited {
+                color: #000000;
+                text-decoration: none;
+            }
+
+            body.nav h1 {
+                margin-bottom: 1em;
+                margin-top: 1.5em;
+            }
+
+            body.nav div.toc, body.nav div.index, body.nav div.search, body.nav div.bookmarks {
+                clear: left;
+            }
+
+        .header {
+            color: #003366;
+            font-weight: bold;
+            margin: 0em;
+            padding: 0em;
+        }
+
+            .header p {
+                margin: 0em;
+            }
+
+            .header .logo {
+                float: right;
+            }
+
+            .header #idContainer {
+                border-color: #FFFFFF;
+                border-top-style: solid;
+                border-width: 1px;
+                padding-left: 1em;
+            }
+
+            .header #idTitle {
+                float: right;
+            }
+
+            body.header #idMain, .header #idTitle {
+                margin-top: 21px;
+            }
+
+            .header #idTitle {
+                margin-left: 1em;
+                margin-right: 3em;
+            }
+
+            .header #idMain {
+                background-color: #FFFFFF;
+                clear: left;
+                font-size: 0px;
+                height: 0px;
+                visibility: hidden;
+            }
+
+                .header #idMain p {
+                    display: none;
+                }
+
+            .header #idNav {
+                margin-top: 3.2em;
+                position: relative;
+            }
+
+        .navButton, .navButtonActive, .navButtonHighlight, .navButtonSelected {
+            border-width: 1px;
+            display: block !important;
+            float: left;
+            margin-right: 1em;
+            text-align: center;
+            padding: .2em;
+        }
+
+        .navButton {
+            background-color: #FFFFFF;
+        }
+
+        .navButton, .navButtonSelected {
+            border-bottom-color: #000000;
+            border-left-color: #83B5E8;
+            border-right-color: #000000;
+            border-top-color: #83B5E8;
+        }
+
+        .navButtonActive, .navButtonHighlight {
+            background-color: #EEE47A;
+            border-bottom-color: #9F8A43;
+            border-left-color: #CCCCCC;
+            border-right-color: #9F8A43;
+            border-top-color: #CCCCCC;
+        }
+
+        .navButtonSelected {
+            background-color: #9F8A43;
+        }
+
+        .navButton a, .navButton a:link, .navButton a:visited, body.nav .navButton a, body.nav .navButton a:link, body.nav .navButton a:visited {
+            color: #000000;
+            cursor: default;
+            text-decoration: none;
+        }
+
+            .navButton a:active, .navButton a:focus, .navButtonHighlight a, .navButtonHighlight a:active, .navButtonHighlight a:focus, .navButtonHighlight a:hover, .navButtonHighlight a:link, .navButtonHighlight a:visited, body.nav .navButton a:active, body.nav .navButton a:focus, body.nav .navButtonHighlight a, body.nav .navButtonHighlight a:active, body.nav .navButtonHighlight a:focus, body.nav body.nav .navButtonHighlight a:hover, body.nav .navButtonHighlight a:link, body.nav .navButtonHighlight a:visited {
+                color: #000000;
+                cursor: default;
+                text-decoration: none;
+            }
+
+        .navButtonActive a, .navButtonActive a:active, .navButtonActive a:focus, .navButtonActive a:hover, .navButtonActive a:link, .navButtonActive a:visited, .navButtonSelected a, .navButtonSelected a:active, .navButtonSelected a:focus, .navButtonSelected a:hover, .navButtonSelected a:link, .navButtonSelected a:visited, body.nav .navButtonSelected a, body.nav .navButtonActive a, body.nav .navButtonActive a:active, body.nav .navButtonActive a:focus, body.nav .navButtonActive a:hover, body.nav .navButtonActive a:link, body.nav .navButtonActive a:visited, body.nav .navButtonSelected a:active, body.nav .navButtonSelected a:focus, body.nav .navButtonSelected a:hover, body.nav .navButtonSelected a:link, body.nav .navButtonSelected a:visited {
+            color: #000000;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        .navButton p, .navButtonActive p, .navButtonHighlight p, .navButtonSelected p {
+            margin: .1em;
+        }
+
+        .navGroupControl span {
+            cursor: default;
+            font-size: 120%;
+            text-decoration: none;
+        }
+
+        .navGroupControl a:link, .navGroupControl a:visited {
+            color: #000000;
+        }
+
+        .navPadding {
+            margin-bottom: 1.5em;
+            margin-left: 1.5em;
+            margin-top: 1.5em;
+        }
+    </style>
+    <script type="text/javascript">
+        function fBodyLoaded() { } function fArraySortedSearch(e, t, n) { for (var o, r = 0, a = e.length - 1, i = -1, v = 0, l = -1, c = -1; !r;) { if (c = Math.floor((v + a) / 2), o = e[c], "object" == typeof o) for (n && (o = o[n]) ; "object" == typeof o;) o = o[0]; o > t ? a = c - 1 : t > o ? v = c + 1 : t == o ? r = 1 : v == l && a == i && (v = a + 1), v > a && (c = -1, r = 1), l = v, i = a } return c } function fBackground() { var e; if (document.body && "header" == document.body.className) { if (!document.getElementById("foreground")) { for (e = document.createElement("div"), e.id = "foreground", e.style.position = "absolute", e.style.width = "100%", e.style.zIndex = "1"; document.body.childNodes.length;) e.appendChild(document.body.firstChild); document.body.appendChild(e) } fGradient(document.body, "background", "FFFFFF", "CED9E9", .5) } } function fBodyLoaded() { fLogoShow(), fBackground(), fImgFix(), fNavHeader(), fLinkFix(), fNavTypeSelect(), fNavGroupExpose(), fNavEntryHighlight(), fFrameLayoutGet() } function fCSHelp() { var e = "default", t = "", n = "", o = 0; t = window.location.hash, "#" == t.charAt(0) && (t = t.substring(1, t.length)), t || (t = e), vHelpMap.sort(), o = fArraySortedSearch(vHelpMap, t), 0 > o && (o = fArraySortedSearch(vHelpMap, e)), o >= 0 && (n = vHelpMap[o][1], fTopicShow(n, 1)) } function fDocExistCheck() { var vDirLevelCount, vLinkCurrent, vExistScriptCount = 0, vExistScriptList = new Array, vLinkCount = 0, vLinkCurrentData = new Array, vLinkDataCount = 0, vTargetDocID = (new Array, ""), vTargetDocPath = "", vTargetDocPathModule = "", vTargetDocPathPre = "", vTargetDocURL = "", vTargetLang = "", vTargetModule = "", vTargetProduct = "", vTargetVersion = ""; if ("topic" == document.body.className && fContext() != cContextMSHelp1PrintMulti) { for (vLinkCount = 0; document.links.length > vLinkCount; vLinkCount++) if (vLinkCurrent = document.links.item(vLinkCount), 0 == vLinkCurrent.className.indexOf(cLinkDocPrefix)) { for (vLinkDocList[vLinkDocList.length] = vLinkCurrent, vTargetDocID = "", vTargetLang = "", vTargetModule = "", vTargetProduct = "", vTargetVersion = "", vLinkCurrentData = vLinkCurrent.className.substring(cLinkDocPrefix.length, vLinkCurrent.className.length).split("|"), vLinkDataCount = 0; vLinkCurrentData.length > vLinkDataCount; vLinkDataCount++) switch (vLinkCurrentData[vLinkDataCount].split("=")[0]) { case "docid": vTargetDocID = vLinkCurrentData[vLinkDataCount].split("=")[1], vTargetProduct = vTargetDocID.substring(0, vTargetDocID.indexOf("_")), vTargetVersion = vTargetDocID.substring(vTargetDocID.indexOf("_") + 1, vTargetDocID.length); break; case "language": vTargetLang = vLinkCurrentData[vLinkDataCount].split("=")[1]; break; case "module": vTargetModule = vLinkCurrentData[vLinkDataCount].split("=")[1] } switch (vTargetDocPath = "", fContext()) { case cContextMSHelp1: vTargetDocPath = cContextList[fContext()][2][0] + vTargetDocID + ".chm::/", vTargetDocURL = vTargetDocPath + fURLFileName(vLinkCurrent.href); break; case cContextMSHelp2: break; default: for (vTargetDocPath = vLinkCurrent.href.substring(0, fLastSlash(vLinkCurrent.href) + 1), vTargetDocPathPre = vTargetDocPath, vDirLevelCount = 0; 3 > vDirLevelCount; vDirLevelCount++) vTargetDocPathPre = vTargetDocPathPre.substring(0, fLastSlash(vTargetDocPathPre)); vTargetDocPathModule = vTargetDocPath.substring(vTargetDocPathPre.length + 1, fLastSlash(vTargetDocPath)), vTargetDocID = (vTargetDocPathModule.substring(fLastSlash(vTargetDocPathModule) + 1, vTargetDocPathModule.length) + "_" + vTargetDocPathModule.substring(0, fLastSlash(vTargetDocPathModule))).toLowerCase(), vTargetDocURL = vTargetDocPath + fURLFileName(vLinkCurrent.href) } vLinkCurrent.href = vTargetDocURL, vLinkCurrent.className = "docid:" + vTargetDocID, vExistScriptList[vExistScriptList.length] = new Array(vTargetDocID, vTargetDocPath + vTargetModule + ".js") } with (vExistScriptList.sort(), document) { for (open(), vExistScriptCount = 0; vExistScriptList.length > vExistScriptCount; vExistScriptCount++) (0 == vExistScriptCount || vExistScriptList[vExistScriptCount][0] != vExistScriptList[vExistScriptCount - 1][0]) && write(fTag("script src='" + vExistScriptList[vExistScriptCount][1] + "' type='text/javascript'") + fTag("/script")); close() } } } function fDocOpen(e, t, n, o) { var r, a, i = 0, v = new Array, l = 0, c = "", s = "", u = 0, d = "", g = new Array, C = "", h = 0, f = 0; switch (i = fContext()) { case cContextMSHelp1: if (o) c = "ShortCut", d = "name='Item1' value=',hh.exe," + t, n && (d += ">" + n), d += "'", g[g.length] = d; else { for (f = 0; cContextList[i][2].length > f; f++) 0 == t.toLowerCase().indexOf(cContextList[i][2][f].toLowerCase()) && (t = t.substring(cContextList[i][2][f].length, t.length), f = cContextList[i][2].length); n || (n = "main"), c = "Related Topics", g[g.length] = "name='Window' value='" + n + "'", g[g.length] = "name='Item1' value='Link Target;" + t + "'" } for (s = unescape("%3C") + "object classid='clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11' id='idXLink' style='height:0px;visibility:hidden;width:0px;' type='application/x-oleobject'" + unescape("%3E") + unescape("%3C") + "param name='Command' value='" + c + "' /" + unescape("%3E"), u = 0; g.length > u; u++) s += unescape("%3C") + "param " + g[u] + " /" + unescape("%3E"); s += unescape("%3C") + "/object" + unescape("%3E"), document.body.innerHTML += s, r = document.getElementById("idXLink"), r.Click(), r.parentNode.removeChild(r); break; case cContextMSHelp2: break; default: v = window.navigator.vEMC.vDocWindowList, n = "emc_" + fStringSubReplace(fStringSubReplace(e, ".", "_"), "-", "_"), l = fArraySortedSearch(v, n, 1), l >= 0 && (h = 1 - v[l][0].closed), C = h ? "javascript:fTopicShow('" + fURLFileName(t) + "')" : t.substring(0, fLastSlash(t) + 1) + "index.htm#topic=" + fURLFileName(t), a = window.open(C, n), l >= 0 || (v[v.length] = new Array(a, n), v.sort()) } } function fFrameLayoutGet() { "header" == document.body.className && oEMC.vDocMain && (vFrameLayout = oEMC.vDocMain.getElementsByTagName("frameset")[0].getElementsByTagName("frameset")[0].cols), vNavDisplay = 1 } function fFramesetLoaded() { fTopicInitial() } function fFramesetUnloaded() { } function fGradient(vContainer, vType, vColor1, vColor2, vSolidRatio) { var vArea, vAreaHeight = 0, vColorBaseR = 0, vColorBaseG = 0, vColorBaseB = 0, vColorCurrent = "", vColorCurrentR = 0, vColorCurrentG = 0, vColorCurrentB = 0, vContainerNodeCount = 0, vContainerNodeCurrent, vContainerNodeList, vIncrementR = 0, vIncrementG = 0, vIncrementB = 0, vPixelBegin = 0, vPixelCount = 0, vStrip; for (vContainerNodeList = vContainer.childNodes, vContainerNodeCount = 0; vContainerNodeList.length > vContainerNodeCount; vContainerNodeCount++) vContainerNodeCurrent = vContainerNodeList.item(vContainerNodeCount), vContainerNodeCurrent.id == vType && (vContainer.removeChild(vContainerNodeCurrent), vContainerNodeCount = vContainerNodeList.length); for (vArea = document.createElement("div"), vArea.style.position = "absolute", vArea.style.top = "0px", vArea.style.left = "0px", vArea.style.height = "100%", vArea.style.width = "100%", "background" == vType && (vArea.style.zIndex = "0"), vArea.id = vType, vContainer.appendChild(vArea), vAreaHeight = parseInt(vArea.clientHeight), vColorBaseR = eval("0x" + vColor1.substring(0, 2)), vColorBaseG = eval("0x" + vColor1.substring(2, 4)), vColorBaseB = eval("0x" + vColor1.substring(4, 6)), vColorCurrentR = vColorBaseR, vColorCurrentG = vColorBaseG, vColorCurrentB = vColorBaseB, vPixelBegin = Math.round(vAreaHeight * vSolidRatio), vIncrementR = (eval("0x" + vColor2.substring(0, 2)) - vColorBaseR) / (vAreaHeight - Math.round(vAreaHeight * vSolidRatio) - 1), vIncrementG = (eval("0x" + vColor2.substring(2, 4)) - vColorBaseG) / (vAreaHeight - Math.round(vAreaHeight * vSolidRatio) - 1), vIncrementB = (eval("0x" + vColor2.substring(4, 6)) - vColorBaseB) / (vAreaHeight - Math.round(vAreaHeight * vSolidRatio) - 1), vPixelCount = 0; vAreaHeight > vPixelCount; vPixelCount++) vPixelBegin > vPixelCount ? (vColorCurrentR = vColorBaseR, vColorCurrentG = vColorBaseG, vColorCurrentB = vColorBaseB) : (vColorCurrentR = Math.round(vColorBaseR + vIncrementR * (vPixelCount - vPixelBegin)), vColorCurrentG = Math.round(vColorBaseG + vIncrementG * (vPixelCount - vPixelBegin)), vColorCurrentB = Math.round(vColorBaseB + vIncrementB * (vPixelCount - vPixelBegin))), vColorCurrent = "rgb(" + vColorCurrentR.toString() + "," + vColorCurrentG.toString() + "," + vColorCurrentB.toString() + ")", vStrip = document.createElement("div"), vStrip.style.position = "relative", vStrip.style.left = "0px", vStrip.style.top = "0px", vStrip.style.height = "1px", vStrip.style.width = vContainer.clientWidth + "px", vStrip.style.backgroundColor = vColorCurrent, vStrip.appendChild(document.createTextNode(" ")), vArea.appendChild(vStrip) } function fImgFix(e) { var t, n = "; MSIE ", o = -1, r = 0, a = 0, i = 0; for (r = 0; document.images.length > r; r++) t = document.images.item(r), "png" == t.src.substring(t.src.lastIndexOf(".") + 1, t.src.length).toLowerCase() && null != t.style.filter && "Microsoft Internet Explorer" == window.navigator.appName && (o = window.navigator.appVersion.indexOf(n), o >= 0 && 7 > parseInt(window.navigator.appVersion.substring(o + n.length, window.navigator.appVersion.indexOf(";", o + 1))) && (a = t.height, i = t.width, t.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + t.src + "')", t.src = vPathToTop + "transparent.png", t.height = a, t.width = i)) } function fLastSlash(e) { var t = -1, n = -1; return t = e.lastIndexOf("\\"), n = e.lastIndexOf("/"), t > n ? t : n } function fLinkFix() { var vLinkClass = "", vLinkCount = 0, vLinkCurrent, vLinkList = new Array, vNodeCurrent, vNodeNext, vTargetDocID = ""; if ("topic" == document.body.className && fContext() != cContextMSHelp1PrintMulti) { for (vLinkCount = 0; document.links.length > vLinkCount; vLinkCount++) vLinkList[vLinkList.length] = document.links[vLinkCount]; for (vLinkCount = 0; vLinkList.length > vLinkCount; vLinkCount++) if (vLinkCurrent = vLinkList[vLinkCount], vLinkClass = vLinkCurrent.className, 0 == vLinkClass.indexOf("docid:")) if (vTargetDocID = vLinkClass.substring(vLinkClass.indexOf(":") + 1, vLinkClass.length), eval("vDocExist." + fStringSubReplace(fStringSubReplace(vTargetDocID, ".", "$"), "-", "$"))) 0 > fArraySortedSearch(vDocInclude, vTargetDocID.toLowerCase()) && (vLinkCurrent.href = "javascript:fDocOpen( '" + vTargetDocID + "', '" + vLinkCurrent.href + "', '', 0 );"); else if (vLinkCurrent.previousSibling || vLinkCurrent.nextSibling) vLinkCurrent.removeAttribute("href"), vLinkCurrent.className = "disabled"; else for (vNodeCurrent = vLinkCurrent; vNodeCurrent;) vNodeNext = vNodeCurrent.parentNode, vNodeNext.removeChild(vNodeCurrent), vNodeCurrent = vNodeNext, vNodeCurrent.firstChild && (vNodeCurrent = null) } } function fLogoShow() { var e, t, n, o = 0; document.getElementById && (e = document.getElementById("idLogo"), e && (o = 1, oEMC.vProductName && oEMC.vProductName == vProductName && (o = 0), o && (n = e.getElementsByTagName("img"), n.length && (t = n[0], t.src = vPathToTop + fURLFileName(t.src)), e.style.display = ""))) } function fMenuDefault(e) { var t, n, o = new Array, r = 0; if (t = document.getElementById(e)) { if (n = t.childNodes, n.length) for (r = 0; n.length > r; r++) "li" == n[r].tagName.toLowerCase() && (o[o.length] = n[r]); 1 == o.length && fRedirect(o[0].getElementsByTagName("a")[0].href) } } function fNavButton(e) { var t, n, o, r, a = "idNavButtonSection", i = "idNavSection", v = 0, l = ""; if (oEMC.vDocMain && (o = oEMC.vDocMain.getElementById("frameNav"), r = oEMC.vDocMain.getElementById("frameTopic")), "idNavButtonShow" == e.id) o ? (t = oEMC.vDocMain.getElementsByTagName("frameset")[0].getElementsByTagName("frameset")[0], vNavDisplay || 0 != parseInt(t.cols.split(",")[0]) ? (fFrameLayoutGet(), o.setAttribute("noresize", "noresize"), t.cols = "0%, *") : (t.cols = vFrameLayout, o.removeAttribute("noresize")), vNavDisplay = 1 - vNavDisplay) : window.alert(cTipNavButtonFail); else if ("idNavButtonPrint" == e.id) r ? r.contentWindow && (r.contentWindow.focus(), r.contentWindow.print()) : window.alert(cTipNavButtonFail); else if ("idNavButtonPDF" == e.id) window.open(vFileNamePDF); else for (n = document.getElementsByTagName("div"), v = 0; n.length > v; v++) l = n[v].id, 0 == l.indexOf(a) ? n[v] == e ? n[v].className = "navButtonSelected" : n[v].className = "navButton" : 0 == l.indexOf(i) && (l == i + e.id.substring(a.length, e.id.length) ? n[v].style.display = "" : n[v].style.display = "none") } function fNavButtonActive(e) { e.className = "navButtonActive" } function fNavButtonHover(e) { "navButtonSelected" != e.className && (e.className = "navButtonHighlight") } function fNavButtonNormal(e) { "navButtonSelected" != e.className && (e.className = "navButton") } function fNavEntryHighlight() { var e, t, n, o, r, a, i, v, l = 0, c = "", s = 0; if ("frameset" != document.body.nodeName && "header" != document.body.className && (oEMC.vDocMain && (i = oEMC.vDocMain.getElementById("frameNav"), v = oEMC.vDocMain.getElementById("frameTopic")), i && v)) for (i.contentDocument ? (e = i.contentDocument, t = v.contentDocument) : (e = oEMC.vDocMain.frames.frameNav.document, t = oEMC.vDocMain.frames.frameTopic.document), r = e.getElementsByTagName("a"), l = 0; r.length > l; l++) if (o = r.item(l), fURLFileName(o.href).toLowerCase() == fURLFileName(t.URL).toLowerCase()) { for (o.className = "navEntryHighlight", o.title = cTipNavEntryCurrent, s = 0, n = o; !s;) 0 == n.id.indexOf("idNavSection") ? (c = n.id, s = 1) : n ? n = n.parentNode : s = 1; if ("idNavSectionTOC" == c) for (n = o; n;) { if ("toc" != n.className && n.style && n.style.display) { for (a = n.previousSibling; 1 != a.nodeType;) a = a.previousSibling; n.id || fNavGroup(a.getElementsByTagName("a")[0]) } n = n.parentNode } } else r[l].removeAttribute("title"), r[l].className = "" } function fNavGroup(e) { var t, n, o = "", r = ""; t = e.parentNode, n = fNavGroupGet(t), n && (n.style.display ? (o = "-", r = cTipNavGroupClose, n.style.display = "") : (o = "+", r = cTipNavGroupOpen, n.style.display = "none"), t.title = r, e.getElementsByTagName("span").length && (e.getElementsByTagName("span")[0].firstChild.nodeValue = o)) } function fNavGroupExpose() { var e, t, n, o, r, a, i, v, l, c = 0, s = 0, u = 0, d = 0, g = new Array, C = 0, h = 0; if ("nav" == document.body.className) g[g.length] = document.body; else for (e = document.body.getElementsByTagName("div"), c = 0; e.length > c; c++) "nav" == e[c].className && (g[g.length] = e[c]); for (C = 0; g.length > C; C++) { for (r = document.getElementsByTagName("span"), s = 0; r.length > s; s++) if (a = r[s], "navGroupControl" == a.className) { for (n || (n = a), t = fNavGroupGet(a), u = 0, t && "div" == t.nodeName.toLowerCase() && (l = document.createTextNode("+"), u = 1, t.style.display = "none"), i = a.getElementsByTagName("a")[0], u ? a.title = cTipNavGroupOpen : (i.removeAttribute("href"), l = document.createTextNode(" ")), v = i.getElementsByTagName("span")[0]; v.firstChild;) v.removeChild(v.firstChild); v.appendChild(l) } if (n) { for (o = n.parentNode; !h;) o = o.nextSibling, o ? "p" == o.nodeName && (h = 1, d = 1) : h = 1; d || fNavGroup(n.getElementsByTagName("a")[0]) } } } function fNavGroupGet(e) { var t, n = 0; for (n = 0, t = e.parentNode; !n;) t = t.nextSibling, t ? "#text" != t.nodeName && (n = 1) : n = 1; return t } function fNavHeader() { var e, t, n = 0; if (document.body && "nav" == document.body.className && document.body.style && document.body.offsetHeight) for (document.documentElement.style.height = "100%", document.documentElement.style.overflow = "hidden", document.body.style.height = "100%", document.body.style.overflow = "hidden", document.getElementById("idNavBody").style.height = Math.max(0, document.body.offsetHeight - document.getElementById("idNavHead").offsetHeight - 2).toString() + "px", t = document.getElementsByTagName("div"), n = 0; t.length > n; n++) e = t[n], 0 == e.id.indexOf("idNavSection") && (e.style.height = document.getElementById("idNavBody").style.height, e.style.width = "100%", e.style.margin = "0em", e.style.overflow = "auto") } function fNavTypeSelect() { "nav" == document.body.className && fNavButton(document.getElementById("idNavButtonSectionTOC")) } function fOptGet(e) { var t, n = 0, o = ""; for (t = document.cookie.split("; "), n = 0; t.length > n; n++) e == t[n].substring(0, t[n].indexOf("=")) && (o = t[n].substring(t[n].indexOf("=") + 1, t[n].length), n = t.length); return "topic" === e && (o = fTopicSanitize(o)), o } function fOptSet(e, t) { var n = new Date; t ? n.setFullYear(n.getFullYear() + 10) : n.setFullYear(1970), document.cookie = e + "=" + t + "; expires=" + n.toGMTString() + ";" } function fOptURLGet(e) { var t = new Array; t[t.length] = '"', t[t.length] = "'"; var n = new Array, o = new Array, r = 0, a = "", i = "", v = 0; for (a = window.location.hash, a && (a = a.substring(1, a.length)), o = a.split(";"), r = 0; o.length > r; r++) n = o[r].split("="), fStringStripWhite(n[0].toLowerCase()) == e && n.length > 1 && (i = n[1], r = o.length); if (i) for (v = 0; t.length > v; v++) i.charAt(0) == t[v] && i.charAt(i.length - 1) == t[v] && (i = i.substring(1, i.length - 1), v = t.length); return "topic" === e && (i = fTopicSanitize(i)), i } function fRedirect(vURLAlt) { var cURLSchemeScript = "javascript:"; 0 == vURLAlt.toLowerCase().indexOf(cURLSchemeScript) ? eval(decodeURI(vURLAlt.substring(cURLSchemeScript.length, vURLAlt.length))) : (fOptSet("vEMCHelpTopic", fOptURLGet("topic")), window.location.replace(vURLAlt)) } function fStringStripWhite(vStr) { var cCharWhite = new Array, vCharWhiteCount = -1, vStrEvalBegin = "", vStrEvalEnd = "", vStrNew = vStr; for (vCharWhiteCount++, cCharWhite[vCharWhiteCount] = " ", vCharWhiteCount++, cCharWhite[vCharWhiteCount] = unescape("%09"), vCharWhiteCount++, cCharWhite[vCharWhiteCount] = unescape("%0A"), vCharWhiteCount++, cCharWhite[vCharWhiteCount] = unescape("%0C"), vCharWhiteCount++, cCharWhite[vCharWhiteCount] = unescape("%0D"), vCharWhiteCount = 0; cCharWhite.length > vCharWhiteCount; vCharWhiteCount++) vCharWhiteCount && (vStrEvalBegin += " || ", vStrEvalEnd += " || "), vStrEvalBegin += "(vStrNew.charAt(0) == cCharWhite[" + vCharWhiteCount.toString() + "])", vStrEvalEnd += "(vStrNew.charAt(vStrNew.length - 1) == cCharWhite[" + vCharWhiteCount.toString() + "])"; for (; eval(vStrEvalBegin) ;) vStrNew = vStrNew.substring(1, vStrNew.length); for (; eval(vStrEvalEnd) ;) vStrNew = vStrNew.substring(0, vStrNew.length - 1); return vStrNew } function fStringSubReplace(e, t, n) { var o = e.split(t), r = 0; for (vStringNew = o[0], r = 1; o.length > r; r++) vStringNew += n + o[r]; return vStringNew } function fTag(e) { return unescape("%3C") + e + unescape("%3E") } function fTopicInitial() { var e, t = ""; e = document.getElementById("frameTopic"), t = fOptGet("vEMCHelpTopic"), t && (fTopicShow(t, 1), fOptSet("vEMCHelpTopic", "")) } function fTopicSave() { var e, t = ""; e = document.getElementById("frameTopic"), t = fURLFileName(e.contentWindow.document.URL), t && fOptSet("vEMCHelpTopic", fTopicSanitize(t)) } function fTopicSanitize(e) { var t = 0, n = 0; for (t = 0; e.length > t; t++) n = e.charAt(t), "-" !== n && "." !== n && "_" !== n && ("0" > n || n > "9") && ("a" > n || n > "z") && (e = "", t = e.length); return e } function fTopicShow(e, t) { var n, o; n = document.getElementById("frameTopic"), o = n ? n.contentWindow : window, e != fURLFileName(o.location.href) && (t ? o.location.replace(e) : o.location.href = e) } function fURLFileName(e) { var t = -1, n = -1; return t = fLastSlash(e), n = e.lastIndexOf("#"), 0 > n && (n = e.length), e.substring(t + 1, n) } function fWindowResize() { fBackground(), fNavHeader() } var cLinkDocPrefix = "docdata:", cTipNavEntryCurrent = "", cTipNavGroupClose = "", cTipNavGroupOpen = "", oEMC = new Object; try { window.parent && window.parent != window && (oEMC.vDocMain = window.parent.document, oEMC.vProductName = window.parent.vProductName) } catch (vErr) { } window.navigator.vEMC || (window.navigator.vEMC = new Object, window.navigator.vEMC.vDocWindowList = new Array); var vDocExist = new Object, vFrameLayout = "", vHelpMap = new Array; vHelpMap[vHelpMap.length] = new Array("default", "index.htm"); var vLinkDocList = new Array, vLinkObjCount = 0, vNavDisplay = 0; window.onresize = fWindowResize; var cTipNavButtonFail = "This command could not be completed. Scripting might be restricted by your browser's security settings.", cTipNavEntryCurrent = "You are currently viewing this topic", cTipNavGroupClose = "Click to collapse", cTipNavGroupOpen = "Click to expand", vTopicHead = new Object; vTopicHead.vElementLink = new Object, vTopicHead.vElementLinkText = new Object, vTopicHead.vElementSeparator = new Object, vTopicHead.vTopicHeaderItem = new Array, vTopicHead.vTopicHeaderItemCount = 0; var vDocInclude = new Array; vDocInclude.sort();
+    </script>
+    <script type="text/javascript">
+        var vPathToTop = "";
+    </script>
+    <title>NessPro Saar: Patch Notes</title>
+    <script type="text/javascript">
+        var vProductName = "NessPro Saar"; var vTitleBook = "Patch Notes"; if (document.title) { if (document.title != vTitleBook) { document.title = vTitleBook + ": " + document.title; } if (document.title != vProductName) { document.title = vProductName + ": " + document.title; } } else { document.title = vProductName; }
+    </script>
+</head>
+<body id="book" onload="fBodyLoaded();">
+    <div class="book" id="patchnotes">
+        <h1>Patch Notes</h1>
+        <div class="product">
+            <p><span class="orgname">NessPRO<sup>®</sup></span> <span class="productname">Saar<sup>®</sup></span> </p>
+            <p class="multiline">Release 1.1.5</p>
+        </div>
+        <div class="abstract">
+            <ul class="toc">
+                <li>
+                    <script type="text/javascript">
+                        vTopicHead.vTopicHeaderItem = new Array();
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_revision", "Revision History");
+                        vTopicHeaderElementList = document.getElementsByTagName("li");
+                        vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                        vTopicHead.vElementParagraph = document.createElement("p");
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[0][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[0][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementParagraph.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementParagraph);
+                    </script>
+                </li>
+                <li>
+                    <script type="text/javascript">
+                        vTopicHead.vTopicHeaderItem = new Array();
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_requirements", "Patch Requirements");
+                        vTopicHeaderElementList = document.getElementsByTagName("li");
+                        vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                        vTopicHead.vElementParagraph = document.createElement("p");
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[0][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[0][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementParagraph.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementParagraph);
+                    </script>
+                </li>
+                <li>
+                    <script type="text/javascript">
+                        vTopicHead.vTopicHeaderItem = new Array();
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install", "Installing the Patch");
+                        vTopicHeaderElementList = document.getElementsByTagName("li");
+                        vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                        vTopicHead.vElementParagraph = document.createElement("p");
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[0][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[0][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementParagraph.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementParagraph);
+                    </script>
+                </li>
+                <li>
+                    <script type="text/javascript">
+                        vTopicHead.vTopicHeaderItem = new Array();
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_fixes", "Fixed Issues");
+                        vTopicHeaderElementList = document.getElementsByTagName("li");
+                        vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                        vTopicHead.vElementParagraph = document.createElement("p");
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[0][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[0][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementParagraph.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementParagraph);
+                    </script>
+                </li>
+                <li class="lastpara">
+                    <script type="text/javascript">
+                        vTopicHead.vTopicHeaderItem = new Array();
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_issues", "Known Issues");
+                        vTopicHeaderElementList = document.getElementsByTagName("li");
+                        vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                        vTopicHead.vElementParagraph = document.createElement("p");
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[0][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[0][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementParagraph.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementParagraph);
+                    </script>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="preface">
+        <p class="topicHeader">
+            <script type="text/javascript">
+                // CREATE BREADCRUMBS
+                vTopicHead.vTopicHeaderItem = new Array();
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                vTopicHeaderElementList = document.getElementsByTagName("p");
+                vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                    vTopicHead.vElementLink = document.createElement("a");
+                    vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                    vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                    vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                    vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                }
+            </script>
+        </p>
+        <h1 id="patchnotes_revision">Revision History</h1>
+        <table><thead><tr><th scope="col">Revision Date</th><th scope="col">Description</th></tr></thead><tbody><tr><td><p>27/11/2016</p></td><td><p>release V. 1.1.5</p></td></tr><tr><td><p>11/01/2017</p></td><td><p>update release V. 1.1.5</p></td></tr></tbody></table>
+    </div>
+    <div class="chapter">
+        <p class="topicHeader">
+            <script type="text/javascript">
+                // CREATE BREADCRUMBS
+                vTopicHead.vTopicHeaderItem = new Array();
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_revision", "Revision History");
+                vTopicHeaderElementList = document.getElementsByTagName("p");
+                vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                    vTopicHead.vElementLink = document.createElement("a");
+                    vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                    vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                    vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                    vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                }
+            </script>
+        </p>
+        <h1 id="patchnotes_requirements">Patch Requirements</h1>
+        <p>NA</p>
+    </div>
+    <div class="chapter">
+        <p class="topicHeader">
+            <script type="text/javascript">
+                // CREATE BREADCRUMBS
+                vTopicHead.vTopicHeaderItem = new Array();
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_requirements", "Patch Requirements");
+                vTopicHeaderElementList = document.getElementsByTagName("p");
+                vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                    vTopicHead.vElementLink = document.createElement("a");
+                    vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                    vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                    vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                    vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                }
+            </script>
+        </p>
+        <h1 id="patchnotes_install">Installing the Patch</h1>
+        <div class="note"></div>
+        <div class="procedure">
+            <div id="windows_platform">
+                <p class="head">Needed manual installations via DA (types etc) and special instructions</p><ul><li><p>Backup Saar Lite & NessDctmRest folders.</p></li><li><p>Stop Tomcat Service.</p></li><li><p>Delete NessDctmRest & SaarLite Folders.</p></li><li><p>Delete NessDctmRest SaarLite WAR Files If exist.</p></li><li><p>Delete Tomcat Cash.</p></li><li><p>Copy NessDctmRest.war & SaarLite.war.</p></li><li><p>Start Tomcat Service.</p></li><li><p>After Tomcat service had started Remove NessDctmRest.war, SaarLite.war.</p></li></ul>
+            </div>
+        </div>
+        <div class="section">
+            <p class="topicHeader">
+                <script type="text/javascript">
+                    // CREATE BREADCRUMBS
+                    vTopicHead.vTopicHeaderItem = new Array();
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install", "Installing the Patch");
+                    vTopicHeaderElementList = document.getElementsByTagName("p");
+                    vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                    for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                    }
+                </script>
+            </p>
+            <h1 id="patchnotes_install_technical">Technical Notes</h1>
+            <p>Installing V 1.1.5 of SaarLite</p><p>This release version is installed over an exsisting version,</p><p>If Installing SaarLite for the first time,</p><p>refere to נוהל התקנת סער לייט - רכיבי שרת ורכיבי עמדת קצה.docx Guide.</p>
+            <p></p>
+        </div>
+        <div class="section">
+            <p class="topicHeader">
+                <script type="text/javascript">
+                    // CREATE BREADCRUMBS
+                    vTopicHead.vTopicHeaderItem = new Array();
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install", "Installing the Patch");
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install_technical", "Technical Notes");
+                    vTopicHeaderElementList = document.getElementsByTagName("p");
+                    vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                    for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                    }
+                </script>
+            </p>
+            <h1 id="patchnotes_install_post">Post Installation Steps</h1>
+            <p>After applying the patch, restart tomcat and clear client machines IE Cache.</p>
+            <p></p>
+            <p class="topicHeader">
+                <script type="text/javascript">
+                    // CREATE BREADCRUMBS
+                    vTopicHead.vTopicHeaderItem = new Array();
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install", "Installing the Patch");
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install_post", "Post Installation Steps");
+                    vTopicHeaderElementList = document.getElementsByTagName("p");
+                    vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                    for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                    }
+                </script>
+            </p>
+        </div>
+    </div>
+    <div class="chapter">
+        <p class="topicHeader">
+            <script type="text/javascript">
+                // CREATE BREADCRUMBS
+                vTopicHead.vTopicHeaderItem = new Array();
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_install", "Installing the Patch");
+                vTopicHeaderElementList = document.getElementsByTagName("p");
+                vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                    vTopicHead.vElementLink = document.createElement("a");
+                    vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                    vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                    vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                    vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                }
+            </script>
+        </p>
+        <h1 id="patchnotes_fixes">Fixed Issues</h1>
+        <div>
+            <p>This section identifies issues and limitations that are fixed by applying the patch.</p>
+            <p>Patches are cumulative. As of its publication date, this document lists the fixes for recent released patches for this product.</p>
+        </div>
+        <div class="section">
+            <p class="topicHeader">
+                <script type="text/javascript">
+                    // CREATE BREADCRUMBS
+                    vTopicHead.vTopicHeaderItem = new Array();
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                    vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_fixes", "Fixed Issues");
+                    vTopicHeaderElementList = document.getElementsByTagName("p");
+                    vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                    for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                        vTopicHead.vElementLink = document.createElement("a");
+                        vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                        vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                        vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                        vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                        vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                    }
+                </script>
+            </p>
+            <h1></h1>
+            <table><caption>Version 1.1.5 Fixed Issues List</caption><thead><tr><th scope="col">Defect #ID</th><th scope="col">Description</th></tr></thead><tbody><tr><td><p>2236</p></td><td><p>הכנסת מאפיין 1 + 2 למאפייני תיק בסע"רלייט</p></td></tr><tr><td><p>2268</p></td><td><p>הוספת חותמת של סע"ר בעת הפצה מסע"רלייט (בדומה למה שקיים בסע"ר הרגיל)</p></td></tr><tr><td><p>2292</p></td><td><p>תמיכה במאפייני תיקים מקצועיים בסע"ר לייט</p></td></tr><tr><td><p>2304</p></td><td><p>אין אפשרות להפסיק את החיפוש המהיר בסער לייט , הדרך היחידה היא לצאת מאאוטלוק</p></td></tr><tr><td><p>2305</p></td><td><p>סע"ר לייט לא יודע לעבוד בסביבת share בה יש שני docbases או יותר שלכל אחד IP ו- url  נפרדים,</p></td></tr><tr><td><p>2320</p></td><td><p>בסער לייט שם מחבר עם  קו אמצעי המערכת לא מאפשרת להזין ונותנת שגיאה שהפורמט לא תקין</p></td></tr><tr><td><p>2324</p></td><td><p>פתיחת קישור בהפצה לא  עובד אם אפלט לא מופעל</p></td></tr><tr><td><p>2326</p></td><td><p>לא ניתן לבחור תבנית מסוף הרשימה כאשר הרשימה היא ארוכה</p></td></tr><tr><td><p>2327</p></td><td><p>לא ניתן לפתוח מסמך לקריאה או לערוך כשיש לו גרשיים בשם</p></td></tr><tr><td><p>2328</p></td><td><p>הסרה של כפתור משלוש מיון בסער לייט</p></td></tr><tr><td><p>2329</p></td><td><p>הוספה של ערכים בשדה סווג בסער לייט מעבר לבלמס</p></td></tr><tr><td><p>2336</p></td><td><p>לא נפתח outlook בפצה בסער לייט</p></td></tr><tr><td><p>2337</p></td><td><p>במאפייני תיק משפטי  ישנם  אותיות מיותרות וחסרה מילה באחד השדות</p></td></tr><tr><td><p>2338</p></td><td><p>מספר הגרסה בסער לייט לא השתנה ל 1.1.5</p></td></tr><tr><td><p>2339</p></td><td><p>נמענים ומאפיניים חדשים שהוסיפו לחלון מפאיניים לא מופיעים ביצירת מסמך ובייבוא</p></td></tr><tr><td><p>2340</p></td><td><p>בשדה נמענים החדש בסער לייט לא ניתן ללחוץ על כתובת המייל</p></td></tr><tr><td><p>2341</p></td><td><p>כאשר לוחצים על כפתור נמעינם ומזינים דרך חלון אווטלוק העתקים הם לא מתווספים לשדה שפותח בסער לייט</p></td></tr><tr><td><p>2345</p></td><td><p>כאשר לוחצים שדה "תאריך פתיחת תיק" בתיק משפטי נפתח תאריכון ולא ניתן לבחור חודש קדימה או אחורה.</p></td></tr><tr><td><p>2346</p></td><td><p>בתיק משפטי שדה תאריך תיק משפטי צריך להיות שדה חובה</p></td></tr><tr><td><p>2347</p></td><td><p>במאפיינים של מסמך קיים שדה בשם סימוכין קודם שלא ניתן להזין שם מלל ידני</p></td></tr><tr><td><p>2348</p></td><td><p>להוסיף בשדות רשימה נפתחת שורת רווח</p></td></tr><tr><td><p>2349</p></td><td><p>בתיק גיור מופיע בשדה בשם מורה פעמיים צריך להיות במקום השדה השני סיבת דחיה</p></td></tr><tr><td><p>2350</p></td><td><p>בשדות שהן code table מופיע בסער לייט ערך מספרי במקום ערך מילולי</p></td></tr><tr><td><p>2352</p></td><td><p>בעקבות הודעה שמתקבלת בפתיחת מסך מאפיינים של תיק בית לדין למשמעת  זה משפיע על כל פתיחת מסך מאפינים של תיק ומסמך</p></td></tr><tr><td><p>2353</p></td><td><p>שדה ת.ז. בתיק גיור לא מתנהג בסער לייט כמו שהוא מתנהג בסער הרגיל</p></td></tr><tr><td><p>2354</p></td><td><p>בתיק גיור בסער ישנם שדות חובה שלא מתנהגים אותו דבר בסער לייט</p></td></tr><tr><td><p>2355</p></td><td><p>כאשר לא מזינים ערך בשדה ת.ז בתיק גיור ולוחצים אישור מקבלים שגיאת שרת   מצורפים צילומי מסך מאקספלורר ומכרום - השגיאות ב f12</p></td></tr><tr><td><p>2356</p></td><td><p>לא נוצר אירוע בהפצה של מסמך מקור ומסמך PDF</p></td></tr><tr><td><p>2357</p></td><td><p>בתיק משפטי חסרים השדות של פרקליט, מתמחה,</p></td></tr><tr><td><p>2358</p></td><td><p>בתיק ועדה ישנם שתי שדות בשם תיאור וחברי ועדה שלא רואים בסער לייט את כל מה שהזינו בסער הרגיל</p></td></tr><tr><td><p>2362</p></td><td><p>בתיק גיור ישנו שדה בשם מחוז שהוא פעמיים השני צריך להיות הרכב</p></td></tr><tr><td><p>2366</p></td><td><p>כאשר פותחים מסך מאפיניים למסמך בסע רלייט ובודק שדות מהחדשים שהוספנו רואים שחלקם ריקים כמו שדה דואר</p></td></tr><tr><td><p>2367</p></td><td><p>שדות תלויים- אם מזינים ערך בשדה סוג מסמך ותת  סוג מסמך לא רואים בסע רלייט את הערך בשדה תת סוג מסמך</p></td></tr><tr><td><p>2368</p></td><td><p>בסער לייט במאפייני מסמך חסר את שדה תאריך מסמך</p></td></tr><tr><td><p>2369</p></td><td><p>במאפיני מסמך בסער לייט שדה דואר הוא לא מתנהג כשדה חובה כמו שהוא צריך להיות</p></td></tr><tr><td><p>2370</p></td><td><p>שגיאת שרת בתיקים מקצועיים כאשר בשם התיק שהוא שדה חובה לא מיזינים ערך</p></td></tr><tr><td><p>2371</p></td><td><p>בתיק גיור יש תיקון שצריך לעשות בסער ליט לגבי שדות מסויימים</p></td></tr><tr><td><p>2372</p></td><td><p>בתיק גיור כאשר אני מסמן את הצק בוק של תז ומקיש תז נכונה מקבלים שגאת שרת</p></td></tr><tr><td><p>2373</p></td><td><p>שדות אל ונמענים יהיו במרווח אחיד בסע רלייט</p></td></tr><tr><td><p>2377</p></td><td><p>שדה דואר שלא היה מגיע אוטומטי ביצירה, בגרירה ובייבוא</p></td></tr><tr><td><p>2378</p></td><td><p>החלף תוכן בסער לייט לא היתה שומרת את הגרסה הקודמת</p></td></tr><tr><td><p>2379</p></td><td><p>בסער  הרגיל הגרדתי את הערכים בשדות של מאפיניי מסמך ובסער לייט חלק מהם ריקים</p></td></tr><tr><td><p>2380</p></td><td><p>בתיק משפטי יש שני שדות חובה שלא מתנהגים בצורה זו</p></td></tr><tr><td><p>2381</p></td><td><p>בתיקי ועדות שדות חובה כאשר לא מזינים ערך מקבלים שגיאת שרת</p></td></tr><tr><td><p>2382</p></td><td><p>שדות תלויים בסער לייט  בתיק משפטי מציגים ערכים לא נכונים בהשוואה לסער.</p></td></tr><tr><td><p>2385</p></td><td><p>בתיק משפטי ישנו שדה הערות - כאשר מזנים ערך בסער לא רואים זאת בסער לייט</p></td></tr><tr><td><p>2387</p></td><td><p>בתיקים מקצועיים ישנו שדה איש קשר שהוא שדה טקסט וזה לא תקין</p></td></tr><tr><td><p>2388</p></td><td><p>שמסך מאפיינים של תיק מקצועי או מסך מאפיינים של מסמך יפתח בחלון יותר גדול</p></td></tr><tr><td><p>2389</p></td><td><p>בתיק משפטי ישנה שגיאת כתיב בשם שופט</p></td></tr><tr><td><p>2390</p></td><td><p>בקשה שתיהיה אפשרות לבטל הוצאה כמו בסער</p></td></tr><tr><td><p>2392</p></td><td><p>לתמוך במאפיינים של מסמך ביצירה מתבנית ובייבוא כמו בתצוגה</p></td></tr><tr><td><p>2393</p></td><td><p>הוספת שדות מאפיין1,מאפיין2 ביצירת תיקיה.</p></td></tr><tr><td><p>2399</p></td><td><p>בחירת איש קשר פעם ופעם שנייה נמחק</p></td></tr><tr><td><p>2400</p></td><td><p>שגיאת שרת ביצירת מסמך מתבנית</p></td></tr><tr><td><p>2401</p></td><td><p>הוספת מדריך כחלק מהקוד</p></td></tr><tr><td><p>2402</p></td><td><p>הוספת אנשי קשר בתיקי ועדות לא מתווספים</p></td></tr><tr><td><p>2417</p></td><td><p>אנשי קשר לא נשתלים במאפייני המסמך בפעולה של הפצת מסמך</p></td></tr><tr><td><p>2418</p></td><td><p>שגיאת שרת בפעולת תיוק</p></td></tr><tr><td><p>2419</p></td><td><p>הוספת שדה חיפוש מילולי במסך חיפוש מתקדם</p></td></tr><tr><td><p>2433</p></td><td><p>בחירת ערך מטבלה בסער בשדה שם שופט והצגת קוד בסער לייט</p></td></tr><tr><td><p>NA-1</p></td><td><p>הוספת שדה תיוק</p></td></tr><tr><td><p>NA-2</p></td><td><p>Add Attribute Committee Folder.</p></td></tr><tr><td><p>NA-3</p></td><td><p>Fixed bug with incorrect deleting recipients in properties window.</p></td></tr></tbody></table>
+        </div>
+    </div>
+    <div class="chapter">
+        <p class="topicHeader">
+            <script type="text/javascript">
+                // CREATE BREADCRUMBS
+                vTopicHead.vTopicHeaderItem = new Array();
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_fixes", "Fixed Issues");
+                vTopicHeaderElementList = document.getElementsByTagName("p");
+                vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                    vTopicHead.vElementLink = document.createElement("a");
+                    vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                    vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                    vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                    vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                    vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                }
+            </script>
+        </p>
+        <h1 id="patchnotes_issues">Known Issues</h1>
+        <div class="section">
+            <div>
+                <p>
+                    This section identifies issues and limitations that might affect your use of
+                    the product after you apply the patch.
+                </p>
+                <p></p>
+                <p class="topicHeader">
+                    <script type="text/javascript">
+                        // CREATE BREADCRUMBS
+                        vTopicHead.vTopicHeaderItem = new Array();
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes", "Patch Notes");
+                        vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItem.length] = new Array("#patchnotes_issues", "Known Issues");
+                        vTopicHeaderElementList = document.getElementsByTagName("p");
+                        vTopicHeaderElement = vTopicHeaderElementList[vTopicHeaderElementList.length - 1];
+                        for (vTopicHead.vTopicHeaderItemCount = 0; vTopicHead.vTopicHeaderItem.length > vTopicHead.vTopicHeaderItemCount; vTopicHead.vTopicHeaderItemCount++) {
+                            vTopicHead.vElementLink = document.createElement("a");
+                            vTopicHead.vElementLink.setAttribute("href", vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][0]);
+                            vTopicHead.vElementLinkText = document.createTextNode(vTopicHead.vTopicHeaderItem[vTopicHead.vTopicHeaderItemCount][1]);
+                            vTopicHead.vElementLink.appendChild(vTopicHead.vElementLinkText);
+                            vTopicHead.vElementSeparator = document.createTextNode(" > ");
+                            vTopicHeaderElement.appendChild(vTopicHead.vElementLink);
+                            vTopicHeaderElement.appendChild(vTopicHead.vElementSeparator);
+                        }
+                    </script>
+                </p>
+                <table><caption>Known Issues List</caption><thead><tr><th scope="col">Defect #ID</th><th scope="col">Description</th></tr></thead><tbody><tr><td><p>2342</p></td><td><p>אין אפשרות ליצור תיקים מקצועיים</p></td></tr></tbody></table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
