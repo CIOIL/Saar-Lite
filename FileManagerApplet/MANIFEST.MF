@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Trusted-Library: true
+Application-Name:  SaarLiteFileManagerApplet
+Permissions: all-permissions
+Created-By: 1.7.0_79
+Codebase: *
+Caller-Allowable-Codebase: *
+Application-Library-Allowable-Codebase: *
+
+

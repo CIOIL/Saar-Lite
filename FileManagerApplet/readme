@@ -1,0 +1,3 @@
+Resulting jar must be: 
+1. Manifest file add string Permission: all-permissions
+2. Signed using keytool with self generated (test) or signing_code_certificate (production) key 
