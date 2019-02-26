@@ -1,0 +1,82 @@
+{
+	"name" : "mail_window",
+	"height" : 500,
+	"width" : 400,
+	"closable" : true,
+	"maximizable" : false,
+	"resizable" : false,
+	"activeTab" : 0,
+	"toolbars" : [{
+				"dock" : "bottom",
+				"tools" : [{
+							"label" : "ok",
+							"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+							"handler" : "ok"
+						}, {
+							"label" : "cancel",
+							"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+							"handler" : "close"
+						}]
+			}],
+	"panels" : [{
+		"name" : "general",
+		"columns" : 1,
+		"rows" : 5,
+		"fields" : [{
+					"name" : "distribution_grid",
+					"label" : "",
+					"type" : "ExtDoc.views.extfields.ExtDocDistributionGridField",
+					"hideHeaders" : true,
+					"style" : "margin-top:20px;width:100%;"
+				}, {
+					"name" : "separator",
+					"label" : "",
+					"type" : "ExtDoc.views.extfields.ExtDocPanelField",
+					"style" : "width:100%; border: none 0px white; height:40px;margin-top:20px; margin-bottom:20px;"
+				}, {
+					"name" : "subject",
+					"label" : "subject",
+					"type" : "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget" : "under",
+					"allowBlank" : true
+				}, {
+					"name" : "message",
+					"label" : "message",
+					"type" : "ExtDoc.views.extfields.ExtDocTextareaField",
+					"msgTarget" : "under",
+					"allowBlank" : true,
+					"grow" : false
+				}, {
+					"name" : "separator",
+					"label" : "",
+					"type" : "ExtDoc.views.extfields.ExtDocPanelField",
+					"style" : "width:100%; border: none 0px white; height:40px;margin-top:20px; margin-bottom:20px;"
+				}, {
+					"name" : "main_format",
+					"label" : "main_format",
+					"type" : "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style" : "text-align: left;",
+					"labelStyle" : "margin-bottom:50px;"
+				}, {
+					"name" : "attach_pdf",
+					"label" : "attach_pdf",
+					"type" : "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style" : "text-align: left;"
+				}, {
+					"name" : "link_pdf",
+					"label" : "link_pdf",
+					"type" : "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style" : "text-align: left;"
+				}]
+	}, {
+		"name" : "recipients",
+		"columns" : 1,
+		"rows" : 5,
+		"fields" : [{
+			"name" : "contacts_grid",
+			"label" : "",
+			"type" : "ExtDoc.views.extfields.ExtDocContactsDistributionGridField",
+			"style" : "margin-top:20px;width:100%;text-align: left;"
+		}]
+	}]
+}

@@ -1,0 +1,162 @@
+{
+	"name": "new_folder",
+	"height": 300,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.custom.NRNewFolderValidation",
+	"submitUrl": "os/createObject",
+	"type": "gov_extended_folder",
+	"activeTab": 0,
+	"toolbars": [
+		{
+		    "name": "bottom_toolbar",
+			"dock": "bottom",
+			"tools": [
+				{
+				    "name" : "okbtn",   
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+				    "name" : "cancelbtn",    
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "general",
+			"columns": 1,
+			"rows": 3,
+			"labelWidth": 65,
+			"fields": [
+				{
+					"name": "object_name",
+					"label": "folder_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "i_folder_id",
+					"label": "i_folder_id",
+					"dataUrl": "os/getFoldersLocation",
+					"type": "ExtDoc.views.extfields.ExtDocLocationField",
+					"msgTarget": "under",
+					"allowBlank": true
+				}				
+			]
+		},
+		{
+			"name": "extra_info",
+			"columns": 1,
+			"rows": 3,
+			"labelWidth": 65,
+			"fields": [
+				{
+					"name": "classification",
+					"label": "classification",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultClassification"
+				},
+				{
+					"name": "sensitivity",
+					"label": "sensitivity",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultSensitivity"
+				},
+				]
+			},
+			{
+			"name": "properties_extended_folder",
+			"columns": 1,
+			"rows": 3,
+			"labelWidth": 65,
+			"fields": [
+				/*{
+					"name": "e_f_boolean",
+					"label": "e_f_boolean",
+					"type": "ExtDoc.views.extfields.ExtDocBooleanComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+				},*/
+				{
+					"name": "e_f_double",
+					"label": "e_f_double",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":true
+				},
+				{
+					"name": "e_f_integer",
+					"label": "e_f_integer",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":false
+				},
+				{
+					"name": "e_f_string",
+					"label": "e_f_string",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "e_f_string_r",
+					"label": "e_f_string_r",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": true,
+                    "maxLength": 24
+				},
+				{
+					"name": "e_f_time",
+					"label": "e_f_time",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "sender_name",
+					"label": "sender_name",
+					"dataUrl": "uis/author",
+					"type": "ExtDoc.views.extfields.ExtDocAuthorField",
+					"msgTarget": "under",
+					"allowBlank": false,
+					"readOnly": false,
+					"msgTarget": "side"
+				}		
+			]
+		}		
+	]
+}

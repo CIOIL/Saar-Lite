@@ -1,0 +1,304 @@
+{
+	"name": "advanced_search",
+	"height": 600,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"activeTab": 0,
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"tools": [
+				{
+					"label": "search",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "doAdvSearch"
+				},
+				{
+					"label": "clear",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "clearForm"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "properties",
+			"columns": 1,
+			"rows": 7,
+			"labelWidth": 90,
+			"fields": [
+			
+			    {
+					"name": "object_name",
+					"label": "object_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "r_object_type",
+					"label": "search_doc_type",
+					"type": "ExtDoc.views.extfields.ExtDocTypesComboField",
+					"msgTarget": "under",
+					"dataUrl": "va/getObjectTypes",
+					"isRepeating": false,
+					"allowBlank": false
+				},
+				{
+					"name": "a_content_type",
+					"label": "content_type",
+					"type": "ExtDoc.views.extfields.ExtDocImageComboTextField",
+					"dataUrl": "config/advsearchform/content_type_combo.json",
+					"dataSource": "local",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "sender_name",
+					"label": "sender_name",
+					"type": "ExtDoc.views.extfields.ExtDocPropertiesSenderField",
+					"allowBlank": true,
+					"msgTarget": "side",
+					"isRepeating": true
+				},
+				{
+					"name": "item_type",
+					"label": "item_type",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "doc_type",
+					"label": "doc_type",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true ,
+					"dependant": "sub_doc_type",
+					"isRepeating": false
+				},
+				{
+					"name": "sub_doc_type",
+					"label": "sub_doc_type",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id","doc_type"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "status",
+					"label": "status",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "from_status_date",
+					"label": "from_status_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false,
+					"typeAttribute":"status_date",
+					"operator":"OP_GREAT_EQ"
+				},
+				{
+					"name": "to_status_date",
+					"label": "to_status_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false,
+					"typeAttribute":"status_date",
+					"operator":"OP_SMALL_EQ"
+				},
+				{
+					"name": "classification",
+					"label": "classification",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "sensitivity",
+					"label": "sensitivity",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "source",
+					"label": "source",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "from_date",
+					"label": "from_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false,
+					"typeAttribute":"doc_date",
+					"operator":"OP_GREAT_EQ"
+				},
+				{
+					"name": "to_date",
+					"label": "to_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false,
+					"typeAttribute":"doc_date",
+					"operator":"OP_SMALL_EQ"
+				},
+				{
+					"name": "old_ref_id",
+					"label": "old_ref_id",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"readOnly": false ,
+					"isRepeating": false
+				},
+				{
+					"name": "remarks",
+					"label": "remarks",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"readOnly": false ,
+					"isRepeating": false
+				},
+				{
+					"name": "keywords",
+					"label": "keywords",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"createNewOnEnter": false,
+                    "createNewOnBlur": false,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+                    "maxLength": 24,
+					"isRepeating": true
+				},
+				{
+					
+					"name": "to",
+					"label": "to",
+					"type" : "ExtDoc.views.extfields.ExtDocContactButtonField1",
+					"onclick" : "this.callGetRecipients();"
+					
+				}, 
+				{
+					"name": "to_panel",
+					"label": "",
+					"type": "ExtDoc.views.extfields.ExtDocContactsPanelField",
+					"header": false,
+    				"style": "height: 100px; overflow: auto; background-color:white;min-height: 100px; margin-bottom: 30px;max-height: 100px;",
+    				"bodyStyle": "height: 100px; overflow: auto; background-color:white; padding: 5px;min-height: 100px;max-height: 100px;",
+    				"scrollable": true,
+    				"height": "200px",
+    				"minHeight": "200px",
+    				"html": "",
+    				"padding": "5px",
+    				"autoScroll": true,
+    				"dontRequest": true,
+    				"isRepeating": false
+    				    				
+				},
+				{
+					"name": "cc",
+					"label": "cc",
+					"type" : "ExtDoc.views.extfields.ExtDocContactButtonField1",
+					"onclick" : "this.callGetRecipients();",
+				}, 
+				{
+					"name": "cc_panel",
+					"label": "",
+					"type": "ExtDoc.views.extfields.ExtDocContactsPanelField",
+					"header": false,
+    				"style": "height: 100px; overflow: auto; background-color:white;min-height: 100px; margin-bottom: 5px; max-height: 100px;",
+    				"bodyStyle": "height: 100px; overflow: auto; background-color:white; padding: 5px;min-height: 100px;max-height: 100px;",
+    				"scrollable": true,
+    				"height": "200px",
+    				"minHeight": "200px",
+    				"html": "",
+    				"padding": "5px",
+    				"autoScroll": true,
+    				"dontRequest": true,
+    				"isRepeating": false
+				},
+				{
+					"name": "search_textual",
+					"label": "search_textual",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"readOnly": false,
+					"isRepeating": false
+				},
+				{
+					"name": "first_label",
+					"label": "first_label",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"dependant": "second_label",
+					"isRepeating": false
+				},
+				{
+					"name": "second_label",
+					"label": "second_label",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["first_label"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"dependant": "extra_label",
+					"isRepeating": false
+				},
+				{
+					"name": "extra_label",
+					"label": "extra_label",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["second_label"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					"isRepeating": false				
+				}
+			]
+		}
+	]
+}

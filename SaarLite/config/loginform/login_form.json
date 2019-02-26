@@ -1,0 +1,68 @@
+{
+	"name": "login",
+	"closable": false,
+	"maximizable": false,
+	"resizable": false,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.NRTestFormValidation",
+	"type": "login",
+	"activeTab": 0,
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"tools": [
+				{
+					"label": "login",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				}
+			]
+		}
+	],		
+	"panels": [
+		{
+			"name": "login_details",
+			"columns": 1,
+			"rows": 2,
+			"fields": [
+				{
+					"name": "username",
+					"label": "username",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"style": "text-align: left;"
+				},
+				{
+					"name": "password",
+					"label": "password",
+					"type": "ExtDoc.views.extfields.ExtDocPasswordField",
+					"msgTarget": "under",
+					"style": "text-align: left;"
+				},
+				{
+					"name": "domain",
+					"label": "domain",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"style": "text-align: left;",
+					"allowBlank": true
+				},
+				{
+					"name": "docbase",
+					"label": "docbase",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"dataUrl": "cs/docbases",
+					"msgTarget": "under",
+					"style": "text-align: left;",
+					"hasEmptyValue": false
+				}/*,
+				{
+					"name": "remember_me",
+					"label": "remember_me",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style": "text-align: left;"
+				}*/
+			]
+		}
+	]
+}

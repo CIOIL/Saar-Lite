@@ -1,0 +1,43 @@
+{
+	"name": "checkin",
+	"height": 220,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.NRCheckinFormValidation",
+	"activeTab": 0,
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"tools": [
+				{
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "checkin",
+			"columns": 1,
+			"rows": 1,
+			"fields": [
+				{
+					"name": "file",
+					"label": "file",
+					"type": "ExtDoc.views.extfields.ExtDocFileField",
+					"msgTarget": "under"
+				}
+			]
+		}
+	]
+}

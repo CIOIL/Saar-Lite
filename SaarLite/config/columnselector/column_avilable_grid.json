@@ -1,0 +1,21 @@
+{
+	"name": "columns_avilable_grid",
+	"home": "os/getAvailableColumns/",
+	"width":"250",
+	"columns": [
+		{
+			"label": "columns_avilable_name",
+			"property": "columns_name",
+			"hidden": true,
+		},
+		{
+			"label": "columns_avilable",
+			"property": "columns_desc",
+			"hidden": false
+		}
+	],
+		"toolbars": [
+		{
+		
+		}]
+}

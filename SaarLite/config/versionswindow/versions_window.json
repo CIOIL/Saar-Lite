@@ -1,0 +1,31 @@
+{
+	"name" : "info_window",
+	"height" : 250,
+	"width" : 350,
+	"closable" : true,
+	"maximizable" : false,
+	"resizable" : false,
+	"activeTab" : 0,
+	"toolbars" : [{
+				"dock" : "bottom",
+				"tools" : [{
+							"label" : "close",
+							"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+							"handler" : "close"
+						}]
+			}],
+	"panels" : [{
+		"name" : "info",
+		"columns" : 1,
+		"rows" : 2,
+		"fields" : [{
+					"name" : "version",
+					"label" : "version",
+					"type" : "ExtDoc.views.extfields.ExtDocTextareaField",
+					"msgTarget" : "under",
+					"allowBlank" : true,
+					"grow" : true,
+					"resizable" : true
+				}]
+	}]
+}

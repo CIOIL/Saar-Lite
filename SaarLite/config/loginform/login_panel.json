@@ -1,0 +1,37 @@
+//DEPRECATED
+{
+	"name": "login_details",
+	"columns": 1,
+	"rows": 2,
+	"fields": [
+		{
+			"name": "username",
+			"label": "username",
+			"type": "ExtDoc.views.extfields.ExtDocTextField",
+			"msgTarget": "under",
+			"style": "text-align: left;"
+		},
+		{
+			"name": "password",
+			"label": "password",
+			"type": "ExtDoc.views.extfields.ExtDocPasswordField",
+			"msgTarget": "under",
+			"style": "text-align: left;"
+		},
+		{
+			"name": "domain",
+			"label": "domain",
+			"type": "ExtDoc.views.extfields.ExtDocTextField",
+			"msgTarget": "under",
+			"style": "text-align: left;"
+		},
+		{
+			"name": "docbase",
+			"label": "docbase",
+			"type": "ExtDoc.views.extfields.ExtDocComboField",
+			"dataUrl": "cs/docbases",
+			"msgTarget": "under",
+			"style": "text-align: left;"
+		}
+	]
+}

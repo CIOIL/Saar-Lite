@@ -1,0 +1,313 @@
+{
+	"name": "new_folder",
+	"height": 500,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.custom.NRGovCourtFolderPropertiesFormValidation",
+	"submitUrl": "os/createObject",
+	"type": "gov_court_folder",
+	"activeTab": 0,
+	"toolbars": [
+		{
+		    "name": "bottom_toolbar",
+			"dock": "bottom",
+			"tools": [
+				{
+				    "name" : "okbtn",   
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+				    "name" : "cancelbtn",    
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "general",
+			"columns": 1,
+			"rows": 18,
+			"labelWidth": 100,
+			"fields": [
+				{
+					"name": "object_name",
+					"label": "number_of_case_in_court",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "i_folder_id",
+					"label": "i_folder_id",
+					"dataUrl": "os/getFoldersLocation",
+					"type": "ExtDoc.views.extfields.ExtDocLocationField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "open_date",
+					"label": "open_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "party_a",
+					"label": "party_a",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false
+				},
+				{
+					"name": "party_b",
+					"label": "party_b",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false
+				},
+				{
+					"name": "party_c",
+					"label": "party_c",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false
+				},
+				{
+					"name": "classification",
+					"label": "classification",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultClassification"
+				},
+				{
+					"name": "sensitivity",
+					"label": "sensitivity",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultSensitivity"
+				},
+				{
+					"name": "subject",
+					"label": "subject",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true ,
+					"dependant" : "sub_subject"
+				},
+				{
+					"name": "sub_subject",
+					"label": "sub_subject",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["subject"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "advocacy",
+					"label": "advocacy",
+                    "type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+					"allowBlank": true
+				},
+				{
+					"name": "from",
+					"label": "advocate",
+					"type" : "ExtDoc.views.extfields.ExtDocContactButtonField1",
+					"onclick" : "this.callGetRecipients();"
+				}, 
+				{
+					"name": "from_panel",
+					"label": "",
+					"type": "ExtDoc.views.extfields.ExtDocContactsPanelField",
+					"header": false,
+    				"style": "height: 100px; overflow: auto; background-color: white; min-height: 100px; margin-bottom: 10px; max-height: 100px; right:5px; width:245px;",
+    				"bodyStyle": "height: 100px; overflow: auto; background-color: white; padding: 5px; min-height: 100px; max-height: 100px;",
+    				"scrollable": true,
+    				"height": "200px",
+    				"minHeight": "200px",
+    				"html": "",
+    				"padding": "5px",
+    				"autoScroll": true
+				},
+				{
+					"name": "to",
+					"label": "to_court",
+					"type" : "ExtDoc.views.extfields.ExtDocContactButtonField1",
+					"onclick" : "this.callGetRecipients();",
+				}, 
+				{
+					"name": "to_panel",
+					"label": "",
+					"type": "ExtDoc.views.extfields.ExtDocContactsPanelField",
+					"header": false,
+    				"style": "height: 100px; overflow: auto; background-color: white; min-height: 100px; margin-bottom: 10px; max-height: 100px; right:5px; width:245px;",
+    				"bodyStyle": "height: 100px; overflow: auto; background-color: white; padding: 5px; min-height: 100px; max-height: 100px;",
+    				"scrollable": true,
+    				"height": "200px",
+    				"minHeight": "200px",
+    				"html": "",
+    				"padding": "5px",
+    				"autoScroll": true
+				},
+				{
+					"name": "cc",
+					"label": "cc_court",
+					"type" : "ExtDoc.views.extfields.ExtDocContactButtonField1",
+					"onclick" : "this.callGetRecipients();",
+				}, 
+				{
+					"name": "cc_panel",
+					"label": "",
+					"type": "ExtDoc.views.extfields.ExtDocContactsPanelField",
+					"header": false,
+    				"style": "height: 100px; overflow: auto; background-color: white; min-height: 100px; margin-bottom: 10px; max-height: 100px; right:5px; width:245px;",
+    				"bodyStyle": "height: 100px; overflow: auto; background-color:white; padding: 5px; min-height: 100px; max-height: 100px;",
+    				"scrollable": true,
+    				"height": "200px",
+    				"minHeight": "200px",
+    				"html": "",
+    				"autoScroll": true
+				},
+				{
+					"name": "court_type",
+					"label": "court_type",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true ,
+					"dependant" : "court"
+				},
+				{
+					"name": "court",
+					"label": "court",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id", "court_type"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "judge_name",
+					"label": "judge_name",
+                    "type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+					"allowBlank": true    
+				},
+				{
+					"name": "procedure_type",
+					"label": "procedure_type",
+                    "type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "claim_amount",
+					"label": "claim_amount",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "physical_path",
+					"label": "physical_path_court",
+                    "type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "singleSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+					"allowBlank": true
+				},
+				{
+					"name": "status",
+					"label": "status",
+					"type": "ExtDoc.views.extfields.ExtDocStatusComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"dependantRequired": "status_date",
+					"allowBlank": true
+				},
+				{
+					"name": "status_date",
+					"label": "status_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "remarks",
+					"label": "remarks",
+					"type": "ExtDoc.views.extfields.ExtDocTextareaField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"grow": false
+				}
+			]
+		}
+	]
+}

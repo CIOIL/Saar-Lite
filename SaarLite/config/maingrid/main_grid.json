@@ -1,0 +1,314 @@
+{
+	"name": "main_grid",
+	"home": "uis/homeFolder",
+	"orderBy": "r_modify_date desc",
+	"columns": [
+		{
+			"property": "r_object_type",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridTypeColumn"
+		},
+		{
+			"property": "r_lock_owner",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridLockColumn"
+		},
+		{
+			"property": "relation_count",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridLinksColumn"
+		},
+		{
+			"label": "name",
+			"property": "object_name",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridColumn"
+		},
+		{
+			"label": "r_modify_date",
+			"property": "r_modify_date",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridDateColumn"
+		},
+		{
+			"label": "sender_name",
+			"property": "sender_name",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridColumn"
+		},
+		{
+			"label": "status",
+			"property": "status",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "doc_type",
+			"property": "doc_type",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "sub_doc_type",
+			"property": "sub_doc_type",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "item_type",
+			"property": "item_type",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "source",
+			"property": "source",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "classification",
+			"property": "classification",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "sensitivity",
+			"property": "sensitivity",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "keywords",
+			"property": "keywords",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "first_label",
+			"property": "first_label",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "second_label",
+			"property": "second_label",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "extra_label",
+			"property": "extra_label",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridCodeTableColumn"
+		},
+		{
+			"label": "r_version_label",
+			"property": "r_version_label",
+			"hidden": true,
+			"sortable": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridVersionLabelColumn"
+		},
+		{
+			"label": "r_folder_path",
+			"property": "r_folder_path",
+			"hidden": false,
+			"sortable": true,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridLocationColumn"
+		},
+		{
+			"label": "id",
+			"property": "r_object_id",
+			"hidden": true,
+			"sortable": false
+		},
+		{
+			"label": "type",
+			"property": "a_content_type",
+			"hidden": true,
+			"sortable": false
+		},
+		{
+			"label": "folderPath",
+			"property": "r_folder_path",
+			"hidden": true,
+			"sortable": false
+		}
+	],
+	"toolbars":[
+		{
+			"name": "main-grid-tools",
+			"dock": "top",
+			"tools": [
+			    {
+					"type": "ExtDoc.views.extgrid.tools.ExtDocNewFolderTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocNewDocTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocImportTool"
+				},				
+				{
+					"name": "edittool",
+					"type": "ExtDoc.views.extgrid.tools.ExtDocEditTool"
+				},
+				{	
+					"name": "readtool",
+					"type": "ExtDoc.views.extgrid.tools.ExtDocReadTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocFavoritesTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocLinkTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocMailTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocDeleteTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocChangeContentTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocExportToCSVTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocLinksTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocAddToClipboardTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocShowClipboardTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocClipboardLinkTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocClipboardMoveTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocClipboardCopyTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocClipboardShareAndLinkTool"
+				},
+				{ 
+					"type": "ExtDoc.views.extgrid.tools.ExtDocFillButtonTool" 
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocPrintTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocColumnsSelectorTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocInfoTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocRefreshTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocLogoutTool"
+				}
+			]
+		}		
+	],
+	"menus":[
+		{
+			"role": "context",
+			"type": "ExtDoc.views.extcontextmenu.ExtDocContextMenu",
+			"items": [
+				{
+					"label": "edit",
+					"type": "ExtDoc.views.extmenuitems.ExtDocEditMenuItem"
+				},
+				{
+					"label": "viewSource",
+					"type": "ExtDoc.views.extmenuitems.ExtDocViewSourceMenuItem"
+				},
+				{
+					"label": "readpdf",
+					"type": "ExtDoc.views.extmenuitems.ExtDocReadMenuItem"
+				},
+				{
+					"label": "properties",
+					"type": "ExtDoc.views.extmenuitems.ExtDocPropertiesMenuItem"
+				},	
+				{
+					"label": "addtofavorites",
+					"type": "ExtDoc.views.extmenuitems.ExtDocAddFavoritesMenuItem"
+				},
+				{
+					"label": "linking",
+					"type": "ExtDoc.views.extmenuitems.ExtDocLinkMenuItem"
+				},
+				/*{
+					"label": "viewSource",
+					"type": "ExtDoc.views.extmenuitems.ExtDocViewSourceMenuItem"
+				},*/
+				{
+					"label": "checkin_same_version",
+					"type": "ExtDoc.views.extmenuitems.ExtDocCheckinSameVersionMenuItem"
+				},
+				{
+					"label": "checkin",
+					"type": "ExtDoc.views.extmenuitems.ExtDocCheckinMenuItem"
+				},
+				{
+					"label": "cancel_checkout",
+					"type": "ExtDoc.views.extmenuitems.ExtDocCancelCheckoutMenuItem"
+				},								
+				{
+					"label": "email",
+					"type": "ExtDoc.views.extmenuitems.ExtDocMailMenuItem"
+				},
+				{
+					"label": "delete_selected_docs",
+					"type": "ExtDoc.views.extmenuitems.ExtDocDeleteMenuItem"
+				},
+				{
+					"label": "change_content",
+					"type": "ExtDoc.views.extmenuitems.ExtDocChangeContentMenuItem"
+				},
+				{
+					"label": "delete_doc_from_favorites",
+					"type": "ExtDoc.views.extmenuitems.ExtDocDeleteDocFromFavoritesMenuItem"
+				},
+				{
+					"label": "show_versions",
+					"type": "ExtDoc.views.extmenuitems.ExtDocShowVersionsMenuItem"
+				},
+				{
+					"label": "show_links",
+					"type": "ExtDoc.views.extmenuitems.ExtDocShowLinksMenuItem"
+				},
+				{
+					"label": "delete_links",
+					"type": "ExtDoc.views.extmenuitems.ExtDocDeleteLinksMenuItem"
+				},
+				{
+					"label": "remove_from_clipboard",
+					"type": "ExtDoc.views.extmenuitems.ExtDocRemoveFromClipboardMenuItem"
+				}
+			]
+		}
+	]
+}

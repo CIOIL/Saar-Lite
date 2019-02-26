@@ -1,0 +1,52 @@
+{
+	"name" : "info_window",
+	"height" : 250,
+	"width" : 350,
+	"closable" : true,
+	"maximizable" : false,
+	"resizable" : false,
+	"activeTab" : 0,
+	"toolbars" : [{
+				"dock" : "bottom",
+				"tools" : [{
+							"label" : "close",
+							"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+							"handler" : "close"
+						}]
+			}],
+	"panels" : [{
+		"name" : "info",
+		"columns" : 1,
+		"rows" : 7,
+		"fields" : [{
+					"name" : "version",
+					"label" : "version",
+					"type" : "ExtDoc.views.extfields.ExtDocTextField",
+					"allowBlank" : true,
+					"readOnly" : true,
+					"style" : "color: #0E77B0; font-weight:800;",
+					"inputWrapCls" : 'textboxasLabel'
+				}, {
+					"name" : "docbase",
+					"label" : "docbase",
+					"type" : "ExtDoc.views.extfields.ExtDocTextField",
+					"allowBlank" : true,
+					"readOnly" : true,
+					"style" : "color: #0E77B0; font-weight:800;",
+					"inputWrapCls" : 'textboxasLabel'
+				}, {
+					"name" : "url",
+					"label" : "url",
+					"type" : "ExtDoc.views.extfields.ExtDocTextField",
+					"allowBlank" : true,
+					"readOnly" : true,
+					"style" : "color: #0E77B0; font-weight: 800;",
+					"inputWrapCls" : 'textboxasLabel'
+				}, {
+					"name" : "guide",
+					"label" : "guide",
+					"type" : "ExtDoc.views.extfields.ExtDocLinkButtonField",
+					"onclick" : "window.open('"+ ExtDoc.config.ExtDocConfig.guideUrl +"', '_blank');"
+				}]
+	}]
+}

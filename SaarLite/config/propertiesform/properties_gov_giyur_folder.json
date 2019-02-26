@@ -1,0 +1,338 @@
+{
+	"name": "properties_giyur_folder",
+	"height": 500,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"submitUrl": "os/update",
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.custom.NRGovGiyurFolderPropertiesFormValidation",
+	"activeTab": 0,
+	"type": "gov_giyur_folder",
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"name": "properties",
+			"tools": [
+				{
+					"name": "okbtn",
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction",
+					"user_permit": 6
+				},
+				{
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "general",
+			"columns": 1,
+			"rows": 17,
+			"labelWidth": 100,
+			"fields": [
+				{
+					"name": "gov_id",
+					"label": "gov_id",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"allowBlank": true,
+					"readOnly": true,
+					"exclude": true
+				},
+				{
+					"name": "object_name",
+					"label": "id_or_passport",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"anchor": "object_name",
+					"msgTarget": "under",
+					"allowBlank": false
+				}, 
+				{
+					"name": "id_type",
+					"label": "id_type",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style": "text-align: left;"
+				},
+				{
+					"name": "first_name",
+					"label": "first_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "last_name",
+					"label": "last_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "district",
+					"label": "district",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": false
+				},
+				{
+					"name": "composition",
+					"label": "composition",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "open_date",
+					"label": "open_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "classification",
+					"label": "classification",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false
+				},
+				{
+					"name": "sensitivity",
+					"label": "sensitivity",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false
+				},
+				{
+					"name": "permanent_status",
+					"label": "permanent_status",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style": "text-align: left;"
+				},
+				{
+					"name": "id_country",
+					"label": "id_country",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "father_name",
+					"label": "father_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "mother_name",
+					"label": "mother_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "birth_date",
+					"label": "birth_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "birth_country",
+					"label": "birth_country",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "gender",
+					"label": "gender",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true				
+				},
+				{
+					"name": "family_status",
+					"label": "family_status",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true					
+				},
+				{
+					"name": "street_address",
+					"label": "street_address",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "home_num",
+					"label": "home_num",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "apartment_num",
+					"label": "apartment_num",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "city",
+					"label": "city",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": false
+				},
+				{
+					"name": "postal_code",
+					"label": "postal_code",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "email",
+					"label": "email",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "cell_phone",
+					"label": "cell_phone",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "phone",
+					"label": "phone",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "family",
+					"label": "family",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style": "text-align: left;"
+				},
+				{
+					"name": "school",
+					"label": "school",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "school_city",
+					"label": "school_city",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "school_class",
+					"label": "school_class",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "school_teacher",
+					"label": "school_teacher",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "community",
+					"label": "community",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style": "text-align: left;"
+				},
+				{
+					"name": "community_type",
+					"label": "community_type",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "community_date",
+					"label": "community_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "rejection_reason",
+					"label": "rejection_reason",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": false,
+                    "createNewOnBlur": false,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": true
+				},
+				{
+					"name": "status",
+					"label": "status",
+					"type": "ExtDoc.views.extfields.ExtDocStatusComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"dependantRequired": "status_date",
+					"allowBlank": true
+				},
+				{
+					"name": "status_date",
+					"label": "status_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				}
+			]
+		}
+	]
+}

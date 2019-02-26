@@ -1,0 +1,44 @@
+{
+	"name" : "create_object_type_chooser_window",
+	"height" : 250,
+	"width" : 250,
+	"closable" : true,
+	"maximizable" : false,
+	"resizable" : false,
+	"activeTab" : 0,
+	"toolbars" : [{
+					"dock" : "bottom",
+					"tools" : [{
+									"label" : "ok",
+									"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+									"handler" : "ok"
+								}, 
+								{
+									"label" : "cancel",
+									"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+									"handler" : "close"
+								}]
+	}],
+	"panels" : [{
+					"name" : "choose_type",
+					"columns": 1,
+					"rows": 3,
+					"fields" : [{
+										"name": "documentType",
+										"label": "gov_document",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_document",
+            							"hidden":true
+								},
+								{
+										"name": "documentType",
+										"label": "gov_extended_document",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_extended_document",
+            							"hidden":true
+            					}
+								]
+	}]
+}

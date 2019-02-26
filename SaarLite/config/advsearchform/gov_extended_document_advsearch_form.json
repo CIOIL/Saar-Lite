@@ -1,0 +1,77 @@
+{
+			"name": "gov_ex_search",
+			"columns": 1,
+			"rows": 3,
+			"labelWidth": 90,
+			"height": 600,
+			"width": 300,
+			"fields": [
+				{
+					"name": "e_d_boolean",
+					"label": "e_d_boolean",
+					"type": "ExtDoc.views.extfields.ExtDocBooleanComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+					
+				},
+				{
+					"name": "e_d_double",
+					"label": "e_d_double",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":true
+				},
+				{
+					"name": "e_d_integer",
+					"label": "e_d_integer",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":false
+				},
+				{
+					"name": "e_d_string",
+					"label": "e_d_string",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+                 	 "name": "e_d_string_r",
+					"label": "e_d_string_r",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                  
+                    "multiSelect": true,
+             
+                    "maxLength": 24,
+                    "isRepeating": true
+				},
+				{
+					"name": "e_d_time",
+					"label": "e_d_time",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"isRepeating": false
+				},
+				{
+					"name": "e_d_remarks",
+					"label": "e_d_remarks",
+					"type": "ExtDoc.views.extfields.ExtDocTextareaField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"grow": false
+				}	
+			]
+		
+	
+}

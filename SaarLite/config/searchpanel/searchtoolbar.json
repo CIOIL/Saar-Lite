@@ -1,0 +1,34 @@
+{
+	"fields": [
+		{
+			"name": "searchValue",
+			"label": "",
+			"type": "ExtDoc.views.extfields.ExtDocSearchTextField",
+			"width": "180px",
+			"allowBlank": true
+		},	
+		{
+			"name": "objectType",
+			"label": "",
+			"type": "ExtDoc.views.extfields.ExtDocImageComboField",
+			"dataUrl": "config/searchpanel/searchcombo.json",
+			"dataSource": "local",
+			"selectedIndex": 0,
+			"width": "50px",
+			"defaultValue": "dm_sysobject",
+			"hasEmptyValue": false			
+		},
+		{
+			"name": "searchButton",
+			"label": "",
+			"handler": "doQuickSearch",
+			"type": "ExtDoc.views.exttitlebarpanel.ExtDocSearchTool",
+			"width": "32px"
+		},
+		{
+			"name": "advancedSearchButton",
+			"label": "",
+			"type": "ExtDoc.views.exttitlebarpanel.ExtDocAdvSearchTool",
+		}
+	]
+}

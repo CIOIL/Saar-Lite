@@ -1,0 +1,45 @@
+{
+	"name": "default_main_grid",
+	"columns": [
+		{
+			"property": "r_object_type",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridTypeColumn"
+		},
+		{
+			"property": "r_lock_owner",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridLockColumn"
+		},
+		{
+			"property": "relation_count",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridLinksColumn"
+		},
+		{
+			"label": "id",
+			"property": "r_object_id",
+			"hidden": true,
+			"sortable": false
+		},
+		{
+			"label": "type",
+			"property": "a_content_type",
+			"hidden": true,
+			"sortable": false
+		},
+		{
+			"label": "r_version_label",
+			"property": "r_version_label",
+			"hidden": true,
+			"sortable": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridVersionLabelColumn"
+		},
+		{
+			"label": "folderPath",
+			"property": "r_folder_path",
+			"hidden": true,
+			"sortable": false
+		}
+	]
+}

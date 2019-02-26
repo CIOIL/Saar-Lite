@@ -1,0 +1,72 @@
+{
+	"name": "test_form",
+	"height": 400,
+	"width": 400,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.NRTestFormValidation",
+	"type": "gov_document",
+	"activeTab": 0,
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"tools": [
+				{
+					"label": "save",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+					"label": "close",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}				
+			]
+		}
+	],	
+	"panels": [
+		{
+			"name": "tab1",
+			"columns": 1,
+			"rows": 2,
+			"fields": [
+				{
+					"name": "test",
+					"label": "test_field",
+					"type": "Ext.form.TextField",
+					"msgTarget": "under",
+					"allowBlank": false,
+					"blankText": "Field Is Must *"
+				},
+				{
+					"name": "test2",
+					"label": "date_field",
+					"type": "Ext.form.DateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				}
+			]
+		},
+		{
+			"name": "tab2",
+			"columns": 1,
+			"rows": 2,
+			"fields": [
+				{
+					"name": "test3",
+					"label": "test_field2",
+					"type": "Ext.form.TextField",
+					"msgTarget": "under"
+				},
+				{
+					"name": "test4",
+					"label": "richtext_feild",
+					"type": "Ext.form.field.HtmlEditor",
+					"msgTarget": "under"
+				}
+			]
+		}		
+	]	
+}

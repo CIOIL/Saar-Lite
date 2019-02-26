@@ -1,0 +1,154 @@
+{
+	"name": "new_folder",
+	"height": 300,
+	"width": 350,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.custom.NRNewFolderValidation",
+	"submitUrl": "os/createObject",
+	"type": "gov_trns_learn_plan_folder",
+	"activeTab": 0,
+	"toolbars": [
+		{
+		    "name": "bottom_toolbar",
+			"dock": "bottom",
+			"tools": [
+				{
+				    "name" : "okbtn",   
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+				    "name" : "cancelbtn",    
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "general",
+			"columns": 1,
+			"rows": 3,
+			"labelWidth": 65,
+			"fields": [
+				{
+					"name": "object_name",
+					"label": "folder_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "i_folder_id",
+					"label": "i_folder_id",
+					"dataUrl": "os/getFoldersLocation",
+					"type": "ExtDoc.views.extfields.ExtDocLocationField",
+					"msgTarget": "under",
+					"allowBlank": true
+				}				
+			]
+		},
+		{
+			"name": "extra_info",
+			"columns": 1,
+			"rows": 3,
+			"labelWidth": 65,
+			"fields": [
+				{
+					"name": "classification",
+					"label": "classification",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultClassification"
+				},
+				{
+					"name": "sensitivity",
+					"label": "sensitivity",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultSensitivity"
+				},
+				{
+					"name": "property1",
+					"label": "property1",    
+                    "type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "singleSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+					"allowBlank": true
+				},
+				{
+					"name": "property2",
+					"label": "property2",    
+                    "type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "singleSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+					"allowBlank": true
+				}
+				]
+			},
+		{
+			"name": "properties_trns_learn_plan",
+			"columns": 1,
+			"rows": 7,
+			"labelWidth": 90,
+			"fields":
+			[
+				{
+					"name": "company_code",
+					"label": "company_code",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":false
+				},
+				{
+					"name": "learning_plan_year",
+					"label": "learning_plan_year",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":false
+				},
+				{
+					"name": "role_code",
+					"label": "role_code",
+					"type": "ExtDoc.views.extfields.ExtDocNumberField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"allowDecimals":false
+				}
+				]
+				
+			}
+	]
+}

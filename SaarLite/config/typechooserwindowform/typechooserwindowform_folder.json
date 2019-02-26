@@ -1,0 +1,108 @@
+{
+	"name" : "create_object_type_chooser_window",
+	"height" : 250,
+	"width" : 250,
+	"closable" : true,
+	"maximizable" : false,
+	"resizable" : false,
+	"activeTab" : 0,
+	"toolbars" : [{
+					"dock" : "bottom",
+					"tools" : [{
+									"label" : "ok",
+									"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+									"handler" : "ok"
+								}, 
+								{
+									"label" : "cancel",
+									"type" : "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+									"handler" : "close"
+								}]
+	}],
+	"panels" : [{
+					"name" : "choose_type",
+					"columns": 1,
+					"rows": 3,
+					"fields" : [{
+										"name": "folderType",
+										"label": "gov_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_folder",
+            							"hidden":true
+								},
+								{
+										"name": "folderType",
+										"label": "gov_court_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_court_folder",
+            							"hidden":true
+								},
+								{
+										"name": "folderType",
+										"label": "gov_committee_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_committee_folder",
+            							"hidden":true
+								},
+								{
+										"name": "folderType",
+										"label": "gov_meeting_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_meeting_folder",
+            							"hidden":true
+								},
+								{
+										"name": "folderType",
+										"label": "gov_request_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_request_folder",
+            							"hidden":true
+								},
+								{
+										"name": "folderType",
+										"label": "gov_discipline_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_discipline_folder",
+            							"hidden":true
+								},
+								{
+										"name": "folderType",
+										"label": "gov_giyur_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_giyur_folder",
+            							"hidden":true
+            					},
+            					{
+										"name": "folderType",
+										"label": "gov_extended_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_extended_folder",
+            							"hidden":true
+            					},
+            					{
+										"name": "folderType",
+										"label": "gov_trns_employ_cand_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_trns_employ_cand_folder",
+            							"hidden":true
+            					},
+            					{
+										"name": "folderType",
+										"label": "gov_trns_learn_plan_folder",
+										"type": "ExtDoc.views.extfields.ExtDocRadioField",
+										"style": "text-align: left;",
+            							"inputValue": "gov_trns_learn_plan_folder",
+            							"hidden":true
+            					}
+								]
+	}]
+}

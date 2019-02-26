@@ -1,0 +1,210 @@
+{
+	"name": "new_folder",
+	"height": 500,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.custom.NRGovCommitteeFolderPropertiesFormValidation",
+	"submitUrl": "os/createObject",
+	"type": "gov_committee_folder",
+	"activeTab": 0,
+	"toolbars": [
+		{
+		    "name": "bottom_toolbar",
+			"dock": "bottom",
+			"tools": [
+				{
+				    "name" : "okbtn",   
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+				    "name" : "cancelbtn",    
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	],
+	"panels": [
+		{
+			"name": "general",
+			"columns": 1,
+			"rows": 18,
+			"labelWidth": 100,
+			"fields": [
+				{
+					"name": "object_name",
+					"label": "committee_name",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": false
+				},
+				{
+					"name": "i_folder_id",
+					"label": "i_folder_id",
+					"dataUrl": "os/getFoldersLocation",
+					"type": "ExtDoc.views.extfields.ExtDocLocationField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "committee_type",
+					"label": "committee_type",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "committee_desc",
+					"label": "committee_desc",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "categories",
+					"label": "categories",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true
+				},
+				{
+					"name": "is_appointed",
+					"label": "is_appointed",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "appointing_date",
+					"label": "appointing_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "appointing_end",
+					"label": "appointing_end",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "from",
+					"label": "committee_members",
+					"type" : "ExtDoc.views.extfields.ExtDocContactButtonField1",
+					"onclick" : "this.callGetRecipients();"
+				}, 
+				{
+					"name": "from_panel",
+					"label": "",
+					"type": "ExtDoc.views.extfields.ExtDocContactsPanelField",
+					"header": false,
+    				"style": "height: 100px; overflow: auto; background-color: white; min-height: 100px; margin-bottom: 10px; max-height: 100px; right:5px; width:245px;",
+    				"bodyStyle": "height: 100px; overflow: auto; background-color: white; padding: 5px; min-height: 100px; max-height: 100px;",
+    				"scrollable": true,
+    				"height": "200px",
+    				"minHeight": "200px",
+    				"html": "",
+    				"padding": "5px",
+    				"autoScroll": true
+				},	
+				{
+					"name": "classification",
+					"label": "classification",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultClassification"
+				},
+				{
+					"name": "sensitivity",
+					"label": "sensitivity",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"msgTarget": "under",
+					"dependencyNames": null,
+					"dataUrl": "va/dropdown",
+					"allowBlank": false,
+					"valueFromFolder": true,
+					"defaultValueMethod":"initDefaultSensitivity"
+				},
+				{
+					"name": "retention_period",
+					"label": "retention_period",
+					"type": "ExtDoc.views.extfields.ExtDocTextField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"maxLength": 16
+				},
+				{
+					"name": "status",
+					"label": "status",
+					"type": "ExtDoc.views.extfields.ExtDocStatusComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"dependantRequired": "status_date",
+					"allowBlank": true
+				},
+				{
+					"name": "status_date",
+					"label": "status_date",
+					"type": "ExtDoc.views.extfields.ExtDocDateField",
+					"msgTarget": "under",
+					"allowBlank": true
+				},
+				{
+					"name": "physical_path",
+					"label": "physical_path",
+                    "type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "singleSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+					"allowBlank": true
+				},
+				{
+					"name": "remarks",
+					"label": "remarks",
+					"type": "ExtDoc.views.extfields.ExtDocTextareaField",
+					"msgTarget": "under",
+					"allowBlank": true,
+					"grow": false
+				},
+				{
+					"name": "keywords",
+					"label": "keywords",
+					"type": "ExtDoc.views.extfields.ExtDocExtendedComboField",
+					"msgTarget": "under",
+					"dependencyNames": ["unit_id"],
+					"dataUrl": "va/dropdown",
+					"allowBlank": true,
+                    "createNewOnEnter": true,
+                    "createNewOnBlur": true,
+                    "multiSelect": true,
+                    "filterPickList": true,
+                    "forceSelection": false,
+                    "maxLength": 24
+				}
+			]
+		}
+	]
+}

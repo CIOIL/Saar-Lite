@@ -1,0 +1,26 @@
+{
+	"name": "linking",
+	"height": 500,
+	"width": 300,
+	"closable": true,
+	"maximizable": true,
+	"resizable": true,
+	"activeTab": 0,
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"tools": [
+				{
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				},
+				{
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,114 @@
+[
+    {
+        "properties": {
+            "value": "word",
+            "code": "word",
+        	"image": "images/icons/msw12.gif"
+        },
+    },
+    {
+        "properties": {
+            "value": "excel",
+            "code": "excel",
+        	"image": "images/icons/excel.gif"
+        }
+    },
+ 	 {
+        "properties": {
+            "value": "pdf",
+            "code": "pdf",
+        	"image": "images/icons/pdf.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "tiff",
+            "code": "tiff",
+        	"image": "images/icons/tiff.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "image",
+            "code": "image",
+        	"image": "images/icons/image.gif"
+        }
+    },
+     {
+        "properties": {
+            "value": "outlook",
+            "code": "outlook",
+        	"image": "images/icons/msg.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "powerpoint",
+            "code": "powerpoint",
+        	"image": "images/icons/powerpoint.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "audio",
+            "code": "audio",
+        	"image": "images/icons/audio.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "video",
+            "code": "video",
+        	"image": "images/icons/avi.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "text",
+            "code": "text",
+        	"image": "images/icons/text.gif"
+        }
+    }, 
+    {
+        "properties": {
+            "value": "css",
+            "code": "css",
+        	"image": "images/icons/css.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "html",
+            "code": "html",
+        	"image": "images/icons/html.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "archive",
+            "code": "archive",
+        	"image": "images/icons/zip.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "java",
+            "code": "java",
+        	"image": "images/icons/java.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "xml",
+            "code": "xml",
+        	"image": "images/icons/xml.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "autocad",
+            "code": "autocad",
+        	"image": "images/icons/acad.gif"
+        }
+    },
+]

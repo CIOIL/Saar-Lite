@@ -1,0 +1,23 @@
+[
+    {
+        "properties": {
+            "value": "documentsAndFolders",
+            "code": "dm_sysobject",
+            "image": "gov_all.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "documents",
+            "code": "gov_document",
+            "image": "gov_document.gif"
+        }
+    },
+    {
+        "properties": {
+            "value": "folders",
+            "code": "dm_folder",
+            "image": "gov_folder.gif"
+        }
+    }
+]

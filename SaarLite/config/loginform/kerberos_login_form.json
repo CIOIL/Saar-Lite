@@ -1,0 +1,47 @@
+{
+	"name": "login",
+	"closable": false,
+	"maximizable": false,
+	"resizable": false,
+	"validationUrl": "vs/validate",
+	"validationClass": "com.ness.validation.NRTestFormValidation",
+	"type": "login",
+	"activeTab": 0,
+	"toolbars": [
+		{
+			"dock": "bottom",
+			"tools": [
+				{
+					"label": "login",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveWindowAction"
+				}
+			]
+		}
+	],		
+	"panels": [
+		{
+			"name": "login_details",
+			"columns": 1,
+			"rows": 2,
+			"fields": [
+				
+				{
+					"name": "docbase",
+					"label": "docbase",
+					"type": "ExtDoc.views.extfields.ExtDocComboField",
+					"dataUrl": "cs/docbases",
+					"msgTarget": "under",
+					"style": "text-align: left;",
+					"hasEmptyValue": false
+				}/*,
+				{
+					"name": "remember_me",
+					"label": "remember_me",
+					"type": "ExtDoc.views.extfields.ExtDocCheckBoxField",
+					"style": "text-align: left;"
+				}*/
+			]
+		}
+	]
+}

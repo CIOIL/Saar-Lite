@@ -1,0 +1,22 @@
+{
+	"name": "manage_favorites_grid",
+	"columns": [
+		{
+		    "type": "ExtDoc.views.extmanagefavoriteswindow.ExtDocManageFaforitesGridColumn",
+			"label": "name",
+			"property": "object_name",
+			"hidden": false
+		}
+	],
+	"toolbars":[
+		{
+			"id": "buttons",
+			"dock": "top",
+			"tools": [
+				{
+					"type": "ExtDoc.views.extmanagefavoriteswindow.tools.ExtDocDeleteFavoriteTool"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"name": "column_selected_grid",
+	"home": "uis/getColumnSelected/{false}/",
+	width:50,
+	"columns": [
+		{
+			"label": "columns_selected_name",
+			"property": "columns_name",
+			"hidden": true
+		},
+		{
+			"label": "columns_selected",
+			"property": "columns_desc",
+			"hidden": false
+		}
+	],
+		"toolbars": [
+		{
+		}]
+}

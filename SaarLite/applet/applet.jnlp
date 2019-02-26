@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp href="applet/applet.jnlp">
+    <information>
+        <title>FileManagerApplet</title>
+        <vendor>Ness Pro</vendor>
+    </information>
+    <resources>
+        <jar href="applet/FileApplet.jar" download="eager" main="true" />
+    </resources>
+    <applet-desc
+         name="FileManagerApplet"
+         main-class="FileManagerApplet"
+         width="1"
+         height="1">
+     </applet-desc>
+     <security>
+      	<all-permissions/>
+     </security>
+     <update check="background"/>
+</jnlp>

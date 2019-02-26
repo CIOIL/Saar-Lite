@@ -1,0 +1,30 @@
+{
+	"name" : "columns_selector_form",
+	"height" : 350,
+	"width" : 620,
+	"closable" : true,
+	"maximizable" : false,
+	"resizable" : false,
+	"activeTab" : 0,
+	"toolbars": [
+		{
+		    "name": "bottom_toolbar",
+			"dock": "bottom",
+			"tools": [
+				{
+				    "name" : "okbtn", 
+					"label": "ok",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "saveColumnSelected"
+				},
+				{
+				    "name" : "cancelbtn",  
+					"label": "cancel",
+					"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+					"handler": "closeWindowAction"
+				},
+				
+			]
+		}]
+}
+	

@@ -1,0 +1,31 @@
+{
+	"name": "location_grid",
+	"home": "uis/homeFolder",
+	"orderby":"object_name",
+	"columns": [
+		{
+			"property": "r_object_type",
+			"hidden": false,
+			"type": "ExtDoc.views.extgrid.columns.ExtDocGridTypeColumn"
+		},
+		{
+			"label": "name",
+			"property": "object_name",
+			"hidden": false
+		}
+	],
+	"toolbars":[
+		{
+			"id": "buttons",
+			"dock": "top",
+			"tools": [
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocBackTool"
+				},
+				{
+					"type": "ExtDoc.views.extgrid.tools.ExtDocAddLocationTool"
+				}
+			]
+		}
+	]
+}

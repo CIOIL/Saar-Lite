@@ -1,0 +1,39 @@
+{
+	"fields": [
+		{
+			"name": "",
+			"text": "move_to_left",
+			"type": "ExtDoc.views.extcolumnselectorwindow.ExtDocColumnSelectorButton",
+			"handler": "addColumnSelected",
+			"icon":"images/finger_to_left.png"
+		},	
+		{
+			"name": "",
+			"text": "move_to_right",
+			"type": "ExtDoc.views.extcolumnselectorwindow.ExtDocColumnSelectorButton",
+			"handler": "removeColumnSelected",
+			"icon":"images/finger_to_right.png"
+		},
+		{
+			"name" : "", 
+			"text": "move_to_up",
+			"type": "ExtDoc.views.extcolumnselectorwindow.ExtDocColumnSelectorButton",
+			"handler": "sortRowUp",
+			"icon":"images/finger_to_up.png"
+		},
+		{
+			"name" : "", 
+			"text": "move_to_down",
+			"type": "ExtDoc.views.extcolumnselectorwindow.ExtDocColumnSelectorButton",
+			"handler": "sortRowDown",
+			"icon":"images/finger_to_down.png"
+		},
+		{
+			"name" : "", 
+			"label": "defaultColumns",
+			"type": "ExtDoc.views.exttoolbar.ExtDocSimpleTool",
+			"handler": "returnToDefaultColumns",
+		}
+		
+	]
+}

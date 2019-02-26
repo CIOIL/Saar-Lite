@@ -1,0 +1,41 @@
+//DEPRECATED
+{
+	"name": "search_panel",
+	"columns": 4,
+	"rows": 1,
+	"valign": "top",
+	"style": "padding-left: 2px;",
+	"fields": [
+		{
+			"name": "searchValue",
+			"label": "",
+			"type": "ExtDoc.views.extfields.ExtDocTextField",
+			"width": "180px"
+		},	
+		{
+			"name": "objectType",
+			"label": "",
+			"type": "ExtDoc.views.extfields.ExtDocImageComboField",
+			"dataUrl": "config/searchpanel/searchcombo.json",
+			"dataSource": "local",
+			"selectedIndex": 0,
+			"width": "50px",
+			"defaultValue": "dm_sysobject",
+			"hasEmptyValue": false
+		
+		},
+		//all this config is not in use anymore. why it is still here?!!!!!!
+		{
+			"name": "searchButton",
+			"label": "",
+			"handler": "doQuickSearch",
+			"type": "ExtDoc.views.exttitlebarpanel.ExtDocSearchTool",
+			"width": "32px"
+		},
+		{
+			"name": "advancedSearchButton",
+			"label": "",
+			"type": "ExtDoc.views.exttitlebarpanel.ExtDocAdvSearchTool",
+		}
+	]
+}
