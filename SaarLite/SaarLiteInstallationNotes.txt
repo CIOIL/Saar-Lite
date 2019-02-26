@@ -1,0 +1,17 @@
+1. Update dfc.properties file
+2. Update superuser.properties file
+3. Update kerberos.properties file
+4. Update values parameters in ExtDocConfig.js class:
+		. restUrl 
+		. saarUrl
+		. authenticationType
+		. kerberosDisplayDocbases
+		. kerberosDocbase
+		. checkoutPath
+		. timeout
+
+		
+
+
+
+
